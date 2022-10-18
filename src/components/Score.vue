@@ -23,7 +23,7 @@ const score = computed(() => {
                         {{item.name}}
                     </div>
                     <div class="score--winner--list--item--position">
-                        {{item.position}}
+                        {{item.speed}}
                     </div>
                 </div>
             </div>

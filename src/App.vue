@@ -12,28 +12,28 @@ const horses = ref([
   {
     id : 1,
     name : 'Horse 1',
-    speed : 20,
+    speed : 0,
     position : 0,
     isFinished : false
   },
   {
     id : 2,
     name : 'Horse 2',
-    speed :20,
+    speed :0,
     position : 0,
     isFinished : false
   },
   {
     id : 3,
     name : 'Horse 3',
-    speed : 20,
+    speed : 0,
     position : 0,
     isFinished : false
   },
   {
     id : 4,
     name : 'Horse 4',
-    speed : 20,
+    speed : 0,
     position : 0,
     isFinished : false
   },
