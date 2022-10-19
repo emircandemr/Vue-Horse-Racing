@@ -26,7 +26,7 @@
             count.value = count.value + 1
             setTimeout(() => {
                 run()
-            }, 30);
+            }, 100);
         }else{
             store.commit("updatePosition", {id : horse.value.id, position : horse.value.position, count : count.value})
             horse.value.isFinished = true
@@ -81,7 +81,11 @@
 <template>
     <div class="horse" :style ="{left : `${horse.position}px`}" >
         <div class="horse--name"></div>
-        <img class="horse--img"  src="../assets/img/carbg.png" alt="">
+        
+        <!-- <img class="horse--img"  src="../assets/img/deneme.png" alt=""> -->
+        <img class="horse--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
+
+        
     </div>
 
 
