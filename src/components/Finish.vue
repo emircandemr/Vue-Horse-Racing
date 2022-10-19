@@ -26,7 +26,7 @@ onMounted(() => {
     .finish--line {
         position: absolute;
         top: 0;
-        right: 125px;
+        right: 250px;
         width: 5px;
         height: 100%;
         background-color: #fff;

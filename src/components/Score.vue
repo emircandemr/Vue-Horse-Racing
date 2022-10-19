@@ -7,7 +7,7 @@ const store = useStore()
 const list = computed(() => store.state.horses)
 
 const score = computed(() => {
-    return list.value.sort((a,b) => b.position - a.position)
+    return list.value.sort((a,b) => a.count - b.count)
 })
 
 </script>
@@ -23,7 +23,7 @@ const score = computed(() => {
                         {{item.name}}
                     </div>
                     <div class="score--winner--list--item--position">
-                        {{item.speed}}
+                        {{item.count}}
                     </div>
                 </div>
             </div>

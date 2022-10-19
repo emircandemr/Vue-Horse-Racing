@@ -1,0 +1,70 @@
+[
+    {
+        "id" : 1,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
+        
+    },
+    {
+        "id" : 2,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
+    },
+    {
+        "id" : 3,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
+    },    {
+        "id" : 4,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
+    },    {
+        "id" : 5,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
+    },    {
+        "id" : 6,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
+    },    {
+        "id" : 7,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
+    },    {
+        "id" : 8,
+        "name" : "John",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "isWinner" : false,
+        "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
+    }
+]
