@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import horseData from "./assets/data/horses.json"
 import HomePage from './Pages/HomePage.vue';
 import StartPage from './Pages/StartPage.vue';
@@ -8,24 +8,13 @@ import {useStore} from "vuex"
 
 const store = useStore()
 
-const horses = ref(horseData)
-
-onMounted(() => {
-  store.commit("setHorses", horses.value)
-})
-
-
-const startHandler = () => {
-  store.commit("setStartFlag", true)
-  store.commit("setLoginPage", false)
-}
+const isLoginActive = computed(() => store.state.isLoginPage)
 
 </script>
 
 <template>
-  <HomePage/>
-  <StartPage/>
-
+  <StartPage v-if="isLoginActive" />
+  <HomePage v-else />
 </template>
 
 

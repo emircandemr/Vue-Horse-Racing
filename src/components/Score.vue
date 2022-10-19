@@ -10,6 +10,8 @@ const score = computed(() => {
     return list.value.sort((a,b) => a.count - b.count)
 })
 
+const selectedID = computed ( () => (store.state.selectedHorse))
+
 </script>
 
 
@@ -18,14 +20,16 @@ const score = computed(() => {
         <div class="score--winner">
             <h1>Table</h1>
             <div class="score--winner--list">
-                <div class="score--winner--list--item" v-for="(item, index) in score" :key="index">
-                    <div class="score--winner--list--item--name">
-                        {{item.name}}
+                <template  v-for="(item, index) in score" :key="index">
+                    <div class="score--winner--list--item" :class="{'selected' : item.id === selectedID}" >
+                        <div class="score--winner--list--item--name">
+                            {{item.name}}
+                        </div>
+                        <div class="score--winner--list--item--position">
+                            {{item.count}}
+                        </div>
                     </div>
-                    <div class="score--winner--list--item--position">
-                        {{item.count}}
-                    </div>
-                </div>
+                </template>
             </div>
         </div>
     </div>
@@ -36,7 +40,7 @@ const score = computed(() => {
 
     .score {
         width: 300px;
-        height: 300px;
+        height: auto;
         background : #212121;
         border-radius: 20px;
         color: aliceblue;
@@ -81,6 +85,11 @@ const score = computed(() => {
 
         }
     
+    }
+
+    .selected {
+        background-color: red;
+        border: 2px solid #fff;
     }
 
 

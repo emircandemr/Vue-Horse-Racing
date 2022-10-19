@@ -1,11 +1,14 @@
 <script setup>
     import { computed } from '@vue/reactivity';
     import { onMounted, onUpdated, ref, toRefs, watch } from 'vue';
-    
     import {useStore} from "vuex"
+    
     const store = useStore()
 
     const props = defineProps(["horse"])
+
+
+
 
     // const {isFinished} = toRefs(props.horse)
 
@@ -72,12 +75,13 @@
     //     console.log(typeof horse.value.position)
     // })
 
+
 </script>
 
 <template>
     <div class="horse" :style ="{left : `${horse.position}px`}" >
         <div class="horse--name"></div>
-        <img class="horse--img"  src="../assets/carbg.png" alt="">
+        <img class="horse--img"  src="../assets/img/carbg.png" alt="">
     </div>
 
 
@@ -86,8 +90,8 @@
 <style lang="scss" scoped>
     .horse {
         position: relative;
-        width: 150px;
-        height: 80px;
+        width: 100px;
+        height: 60px;
         z-index: 1;
         margin: 10px;
 
@@ -111,5 +115,7 @@
         }
 
     }
+
+
 
 </style>
