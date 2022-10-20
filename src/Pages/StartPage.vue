@@ -11,7 +11,6 @@ onMounted(() => {
 })
 
 const selectHandler = (item) => {
-    console.log(item)
     store.commit("setSelectedHorse", item)
     store.commit("setLoginPage", false)
 }

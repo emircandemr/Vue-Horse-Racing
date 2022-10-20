@@ -1,9 +1,9 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue';
-import horseData from "./assets/data/horses.json"
+import { computed} from 'vue';
 import HomePage from './Pages/HomePage.vue';
 import StartPage from './Pages/StartPage.vue';
 import {useStore} from "vuex"
+import Countdown from './components/Countdown.vue';
 
 
 const store = useStore()
@@ -15,6 +15,7 @@ const isLoginActive = computed(() => store.state.isLoginPage)
 <template>
   <StartPage v-if="isLoginActive" />
   <HomePage v-else />
+  <Countdown></Countdown>
 </template>
 
 

@@ -5,75 +5,61 @@
     
     const store = useStore()
 
-    const props = defineProps(["horse"])
-
-
-
-
-    // const {isFinished} = toRefs(props.horse)
+    const props = defineProps(["horse","start"])
 
     const horse = ref(props.horse)
+
+    const startFlag = computed( () => {
+        return store.state.startFlag
+    })
 
     const finish = computed(() => {
         return store.state.finishFlag
     })
+
     const count = ref(0)
 
     const run = () => {
         if(horse.value.position < finish.value && !horse.value.isFinished){
-            horse.value.speed = Math.floor(Math.random() * 20) + 1
+            horse.value.speed = Math.floor(Math.random() * 15)+1
             horse.value.position += horse.value.speed
             count.value = count.value + 1
+            store.commit("updatePosition", {id : horse.value.id, position : horse.value.position, count : count.value})
             setTimeout(() => {
                 run()
             }, 100);
-        }else{
-            store.commit("updatePosition", {id : horse.value.id, position : horse.value.position, count : count.value})
-            horse.value.isFinished = true
-            console.log(count.value)
-            setTimeout(() => {
-                horse.value.position=0,
-                horse.value.speed=0,
-                horse.value.isFinished=false,
-                store.commit("setStartFlag", false)
-            }, 1000);
+        }
+        else{
+            console.log("girdi")
+            console.log(horse.value.isFinished)
+            // horse.value.isFinished = true
+            // horse.value.position = 0 ,
+            // count.value = 0,
+            // horse.value.speed = 0
+            store.commit("setStartFlag", false)
         }
     }
 
-    const startFlag = computed(() => {
-        return store.state.startFlag
-    })
+    // onUpdated(() => {
+    //     if(startFlag.value){
+    //         setTimeout(() => {
+    //             run()
+    //         }, 100);
+    //     }
+    // //   setTimeout(() => {
+    // //     if(startFlag.value){
+    // //         run()
+    // //     }
+    // //   }, 100);
+    // })
 
-    watch(startFlag, (val) => {
-        if(val){
+    watch(startFlag, (newVal) => {
+        // console.log(newVal)
+        if(newVal){
             run()
         }
     })
 
-    // const moveHorse = () => {
-    //     horse.value.speed += Math.floor(Math.random() * 10) + 1
-    //     horse.value.position += Math.round(Math.random() * horse.value.speed)
-    //     store.commit("updatePosition",{id : horse.value.id, position : horse.value.position})
-    //     if(horse.value.position >= store.state.finishFlag) {
-    //         horse.value.isFinished = true
-    //     }
-    // }
-
-
-    // const start = () => {
-    //     const interval = setInterval(() => {
-    //         if(horse.value.isFinished) {
-    //             clearInterval(interval)
-    //         } else {
-    //             moveHorse()
-    //         }
-    //     }, 300)
-    // }
-
-    // onMounted(() => {
-    //     start()
-    //     console.log(typeof horse.value.position)
-    // })
 
 
 </script>
@@ -81,11 +67,7 @@
 <template>
     <div class="horse" :style ="{left : `${horse.position}px`}" >
         <div class="horse--name"></div>
-        
-        <!-- <img class="horse--img"  src="../assets/img/deneme.png" alt=""> -->
         <img class="horse--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
-
-        
     </div>
 
 
@@ -97,7 +79,7 @@
         width: 100px;
         height: 60px;
         z-index: 1;
-        margin: 10px;
+        margin: -10px;
 
         &--name {
             position: absolute;

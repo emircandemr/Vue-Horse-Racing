@@ -1,7 +1,7 @@
 [
     {
         "id" : 1,
-        "name" : "John",
+        "name" : "Lucky",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -11,7 +11,7 @@
     },
     {
         "id" : 2,
-        "name" : "John",
+        "name" : "Bronco",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -20,7 +20,7 @@
     },
     {
         "id" : 3,
-        "name" : "John",
+        "name" : "Rushmore",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -28,7 +28,7 @@
         "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
     },    {
         "id" : 4,
-        "name" : "John",
+        "name" : "Quarterback",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -36,7 +36,7 @@
         "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
     },    {
         "id" : 5,
-        "name" : "John",
+        "name" : "Blacksmith",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -44,7 +44,7 @@
         "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
     },    {
         "id" : 6,
-        "name" : "John",
+        "name" : "Buckeye",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -52,7 +52,7 @@
         "img" : "https://abcteach-content-s3-blob-storage.s3.us-east-2.amazonaws.com/abcteach-content-free/docs/free_preview/h/horsehead_rgb_p.png"
     },    {
         "id" : 7,
-        "name" : "John",
+        "name" : "Franklin",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,
@@ -60,7 +60,7 @@
         "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
     },    {
         "id" : 8,
-        "name" : "John",
+        "name" : "Sheriff",
         "speed" : 0 ,
         "position" : 0,
         "isFinished" : false,

@@ -1,15 +1,13 @@
 <script setup>
 import { computed } from "@vue/reactivity";
 import {useStore} from "vuex"
-import {onMounted, onUpdated, ref, watch} from "vue"
 const store = useStore()
 
 const list = computed(() => store.state.horses)
 
 const score = computed(() => {
-    return list.value.sort((a,b) => a.count - b.count)
+    return list.value.sort((a,b) => b.position - a.position)
 })
-
 const selectedID = computed ( () => (store.state.selectedHorse))
 
 </script>
@@ -20,16 +18,18 @@ const selectedID = computed ( () => (store.state.selectedHorse))
         <div class="score--winner">
             <h1>Table</h1>
             <div class="score--winner--list">
-                <template  v-for="(item, index) in score" :key="index">
-                    <div class="score--winner--list--item" :class="{'selected' : item.id === selectedID}" >
-                        <div class="score--winner--list--item--name">
-                            {{item.name}}
-                        </div>
-                        <div class="score--winner--list--item--position">
-                            {{item.count}}
-                        </div>
-                    </div>
-                </template>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Horse</th>
+                        <th>Position</th>
+                    </tr>
+                    <tr v-for="(horse, index) in score" :key="horse.id" >
+                        <td :class="{'selected' : horse.id === selectedID}">{{index + 1}}</td>
+                        <td>{{horse.name}}</td>
+                        <td>{{horse.position}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -39,8 +39,8 @@ const selectedID = computed ( () => (store.state.selectedHorse))
 <style lang="scss" scoped>
 
     .score {
-        width: 300px;
-        height: auto;
+        width: 20%;
+        max-height: 550px;
         background : #212121;
         border-radius: 20px;
         color: aliceblue;
@@ -62,25 +62,30 @@ const selectedID = computed ( () => (store.state.selectedHorse))
                 height: 100%;
                 width: 100%;
 
-                &--item {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: space-between;
-                    height: 50px;
+                table {
                     width: 100%;
-                    border-bottom: 1px solid #fff;
+                    border-collapse: collapse;
+                    border: 1px solid #ddd;
+                    text-align: center;
+                    font-size: 18px;
+                    color: aliceblue;
 
-                    &--name {
-                        width: 50%;
-                        text-align: center;
+                    th {
+                        border: 1px solid #ddd;
                     }
 
-                    &--position {
-                        width: 50%;
-                        text-align: center;
+                    td {
+                        border: 1px solid #ddd;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    .selected {
+                        background-color: #fff;
+                        color: #000;
                     }
                 }
+
+
             }
 
         }

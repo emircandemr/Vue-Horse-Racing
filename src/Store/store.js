@@ -3,27 +3,30 @@ import { createStore } from "vuex";
 // localstorage ekleyerek istatistikte ekleyebilirsin (localstorage'ı kullanmak için npm install localstorage --save komutunu kullan)
 const store = createStore({
     state : {
-        isLoginPage : true,
-        startFlag : false,
-        finishFlag  : null,
-        horses : [],
-        selectedHorse : null,
+        isCountdownActive : false,
+        isLoginPage : true, //Start Page
+        startFlag : false, //  Start Button 
+        finishFlag  : null, // Finish Flag ölçüsü
+        horses : [], // horse list
+        selectedHorse : null, // seçilen atın ID'si
     },
-
     mutations : {
-        setStartFlag(state, payload){
+        setCountdownActive(state, payload){
+            state.isCountdownActive = payload;
+        },
+        setStartFlag(state, payload){  // Start Buttonu aktif veya inaktif etmek için
             state.startFlag = payload;
         },
-        setFinishFlag(state, payload) {
+        setFinishFlag(state, payload) { // Finish bayrağının sola olan ölçüsünü tutar
             state.finishFlag = payload;
         },
-        setLoginPage(state, payload) {
+        setLoginPage(state, payload) { // StartPage değişkenini değiştirir
             state.isLoginPage = payload;
         },
-        setHorses (state, payload) {
+        setHorses (state, payload) { // Atların listesini tutar
             state.horses = payload;
         },
-        setSelectedHorse (state, payload) {
+        setSelectedHorse (state, payload) { // Seçilen atı değiştirir
             state.selectedHorse = payload;
         },
         updatePosition(state, payload) {
