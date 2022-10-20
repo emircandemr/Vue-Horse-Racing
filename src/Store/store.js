@@ -3,7 +3,8 @@ import { createStore } from "vuex";
 // localstorage ekleyerek istatistikte ekleyebilirsin (localstorage'ı kullanmak için npm install localstorage --save komutunu kullan)
 const store = createStore({
     state : {
-        isCountdownActive : false,
+        isCountdownActive : false, // sayacın çalışıp çalışmadığını kontrol eder
+        isBoardActive : false,
         isLoginPage : true, //Start Page
         startFlag : false, //  Start Button 
         finishFlag  : null, // Finish Flag ölçüsü
@@ -13,6 +14,9 @@ const store = createStore({
     mutations : {
         setCountdownActive(state, payload){
             state.isCountdownActive = payload;
+        },
+        setBoardActive(state, payload){
+            state.isBoardActive = payload;
         },
         setStartFlag(state, payload){  // Start Buttonu aktif veya inaktif etmek için
             state.startFlag = payload;

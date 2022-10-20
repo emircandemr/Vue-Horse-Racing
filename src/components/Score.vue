@@ -1,13 +1,18 @@
 <script setup>
-import { computed } from "@vue/reactivity";
+import { computed,onMounted,ref } from "vue"
 import {useStore} from "vuex"
 const store = useStore()
 
 const list = computed(() => store.state.horses)
 
+// const score = computed(() => {
+//     return list.value.sort((a,b) => b.position - a.position)
+// })
+
 const score = computed(() => {
     return list.value.sort((a,b) => b.position - a.position)
 })
+
 const selectedID = computed ( () => (store.state.selectedHorse))
 
 </script>

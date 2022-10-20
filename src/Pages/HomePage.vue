@@ -6,6 +6,7 @@ import Horse from "../components/Horse.vue";
 import Score from "../components/Score.vue";
 import Button from "../components/Button.vue";
 import Countdown from "../components/Countdown.vue";
+import LeaderBoard from "../components/LeaderBoard.vue";
 
 const store = useStore()
 
@@ -52,7 +53,7 @@ const buttons = ref([
         <Finish />
         <Horse v-for="horse in horses"  :horse="horse"  />
         <Score  />
-
+        <LeaderBoard/>
     </div>
 </template>
 
