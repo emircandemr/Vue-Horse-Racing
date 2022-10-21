@@ -22,15 +22,13 @@ onMounted(() => {
 
 
 <style lang="scss" scoped>
-
     .finish--line {
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 250px;
         width: 5px;
         height: 100vh;
         background-color: #fff;
-        z-index: 1;
     }
     
 

@@ -7,6 +7,9 @@ import Score from "../components/Score.vue";
 import Button from "../components/Button.vue";
 import Countdown from "../components/Countdown.vue";
 import LeaderBoard from "../components/LeaderBoard.vue";
+import Header from "../Layout/Header.vue";
+import Sidebar from "../Layout/Sidebar.vue";
+import Content from "../Layout/Content.vue";
 
 const store = useStore()
 
@@ -47,17 +50,32 @@ const buttons = ref([
 </script>
 
 <template>
-    <div>
-        {{startFlag}}
-        <Button v-for="button in buttons" :button="button" ></Button>
-        <Finish />
-        <Horse v-for="horse in horses"  :horse="horse"  />
-        <Score  />
-        <LeaderBoard/>
+    <div class="main">
+        <Sidebar></Sidebar>
+        <div class="main--content">
+            <Header></Header>
+            <Content></Content>
+        </div>
+        <!-- <Button v-for="button in buttons" :button="button" ></Button> -->
+        <!-- <Finish /> -->
+        <!-- <Horse v-for="horse in horses"  :horse="horse"  /> -->
+        <!-- <Score  /> -->
+        <!-- <LeaderBoard/> -->
     </div>
 </template>
 
 
 <style lang="scss" scoped>
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    &--content {
+        width: 100%;
+        height: 100%;
+    }
+}
 
 </style>

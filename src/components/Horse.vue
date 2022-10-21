@@ -17,13 +17,13 @@
         return store.state.finishFlag
     })
 
-    const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
+    // const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
     const count = ref(0)
 
     const run = () => {
         if(horse.value.position < finish.value && !horse.value.isFinished){
-            audio.play()
+            // audio.play()
             horse.value.speed = Math.floor(Math.random() * 15)+1
             horse.value.position += horse.value.speed
             count.value = count.value + 1
@@ -34,7 +34,7 @@
         }
         else{
             console.log("girdi")
-            audio.pause()
+            // audio.pause()
             console.log(horse.value.isFinished)
             // horse.value.isFinished = true
             // horse.value.position = 0 ,

@@ -13,7 +13,7 @@ const score = computed(() => {
     return list.value.sort((a,b) => b.position - a.position)
 })
 
-const selectedID = computed ( () => (store.state.selectedHorse))
+const selectedID = computed ( () => (store.state.selectedHorse.id))
 
 </script>
 
