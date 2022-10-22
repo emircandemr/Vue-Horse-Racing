@@ -1,45 +1,59 @@
 <script setup>
-import { computed, onMounted, onUpdated, ref } from 'vue';
-import {useStore} from "vuex"
+    import { computed, onMounted, onUpdated, ref, watch } from 'vue';
+    import {useHorseStore} from "../stores/use-horseData"
 
-    const store = useStore()
+    const horseStore = useHorseStore()
 
     const countdown = ref(3)
-    const isCountdownActive = ref(computed(() => store.state.isCountdownActive))
 
     const start = () => {
         countdown.value = countdown.value - 1
-      
     }
 
     const audio = new Audio("http://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
     const audio2 = new Audio("http://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
-    
-    
-    onUpdated(() => {
-        if(isCountdownActive.value == true){
-            audio.play()
+
+    onMounted( () => {
+        const timer = setInterval(() => {
             if(countdown.value > 0){
-            setTimeout(() => {
                 start()
-            }, 1000);
-        }
-        else{
-            audio.pause()
-            audio2.play()
-            store.commit("setStartFlag", true)
-            store.commit("setCountdownActive", false)
-            countdown.value = 3
-        }
-        }
+                audio.play()
+            }
+            else{
+                clearInterval(timer)
+                horseStore.setStartFlag(true)
+                audio2.play()
+                horseStore.setCountdownActive(false)
+            }
+        }, 1000);
     })
+    // onUpdated(() => {
+    //     console.log("girdi")
+    //     if(isActive){
+    //         audio.play()
+    //         if(countdown.value > 0){
+    //         setTimeout(() => {
+    //             start()
+    //         }, 1000);
+    //     }
+    //     else{
+    //         audio.pause()
+    //         audio2.play()
+    //         horseStore.setStartFlag(true)
+    //         horseStore.setCountdownActive(false)
+    //         countdown.value = 3
+    //     }
+    //     }
+    // })
+
 
 </script>
 
 <template>
-    <div v-if="isCountdownActive" class="modal">
+    <div v-if="horseStore.getCountdownActive" class="modal">
         <div class="modal--layer"></div>
         <div class="modal--content">
+            
             <!-- <audio
                 controls
                 hidden="true"

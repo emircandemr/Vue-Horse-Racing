@@ -39,7 +39,14 @@ const store = createStore({
             // state.horses[index].speed = payload.speed;
             state.horses[index].count = payload.count;
         },
-    }
+    },
+    getters : {
+        getHorses(state) {
+            return state.horses;
+        }
+    },
+    
+
 })
 
 

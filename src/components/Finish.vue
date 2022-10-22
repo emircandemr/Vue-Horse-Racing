@@ -1,22 +1,24 @@
 <script setup>
 
-import { onMounted, ref } from 'vue';
-import {useStore} from "vuex"
+import { onMounted, ref } from 'vue';    
+import {useHorseStore} from "../stores/use-horseData"
 
-const store = useStore()
+const horseStore = useHorseStore()
 
 const flag = ref()
 
 onMounted(() => {
     console.log(flag)
-    store.commit("setFinishFlag", flag.value.offsetLeft)
+    horseStore.setFinishFlag((flag.value.offsetLeft-380))
+    // store.commit("setFinishFlag", flag.value.offsetLeft)
 })
 
 </script>
 
 <template>
     <div ref="flag" class="finish--line">
-        <div class="finish--line--flag"></div>
+        <div class="finish--line--flag">
+        </div>
     </div>
 </template>
 
@@ -25,10 +27,18 @@ onMounted(() => {
     .finish--line {
         position: fixed;
         top: 0;
-        right: 250px;
+        right: 150px;
         width: 5px;
         height: 100vh;
-        background-color: #fff;
+        display: flex;
+        place-items: center;
+        background-color: black;
+        z-index: 99;
+        &--flag {
+            width: 50px;
+            height: 100%;
+        }
+
     }
     
 

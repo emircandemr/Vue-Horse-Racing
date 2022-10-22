@@ -1,13 +1,12 @@
 <script setup>
-    import {useStore} from "vuex"
+    import {useHorseStore} from "../stores/use-horseData"
+    const horseStore = useHorseStore()
+
 
     const props = defineProps(["item"])
 
-    const store = useStore()
-
     const selectHandler = (item) => {
-    store.commit("setSelectedHorse", item)
-    store.commit("setLoginPage", false)
+        horseStore.setSelectHorse(item)
 }
 
 </script>
@@ -21,8 +20,8 @@
 <style lang="scss" scoped>
 
     .avatar{
-        width: 60px;
-        height: 60px;
+        width: 180px;
+        height: 180px;
         display: flex;
         align-items: center;
         justify-content: center;

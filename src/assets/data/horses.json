@@ -6,6 +6,7 @@
         "position" : 0,
         "isFinished" : false,
         "isWinner" : false,
+        "distance" : 0,
         "img" : "https://png.pngtree.com/png-vector/20220121/ourlarge/pngtree-cartoon-hand-drawn-cute-animal-horse-head-png-image_4280560.png"
         
     },

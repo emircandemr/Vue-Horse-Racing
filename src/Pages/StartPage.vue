@@ -1,15 +1,21 @@
 <script setup>
 import { onMounted } from "vue";
-import {useStore} from "vuex"
 import horseData from "../assets/data/horses.json"
 import Avatar from "../components/Avatar.vue";
+import {useHorseStore} from "../stores/use-horseData"
+import {useRouter} from "vue-router"
 
-const store = useStore()
+const horseStore = useHorseStore()
+const router = useRouter()
 
 onMounted(() => {
-  store.commit("setHorses", horseData)
+  horseStore.setHorses(horseData)
 })
 
+const startHandler = () => {
+    router.push("/home")
+    horseStore.setCountdownActive(true)
+}
 
 </script>
 
@@ -17,10 +23,10 @@ onMounted(() => {
     <div class="select" >
         <h1 class="select--title">Choose Your Avatar</h1>
         <div class="select--content" >
-                <Avatar v-for="item in horseData" :item="item" ></Avatar>
-                <!-- <div class="select--horse" >
-                    <img class="select--img" :src="item.img" @click="selectHandler(item.id)">
-                </div> -->
+            <Avatar v-for="item in horseStore.horses" :item="item" ></Avatar>
+        </div>
+        <div class="select--start" >
+            <button @click="startHandler">Start</button>
         </div>
     </div>
 </template>
@@ -51,6 +57,27 @@ onMounted(() => {
             justify-content: center;
             flex-wrap: wrap;
         }
+
+        &--start{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+
+            button{
+                width: 200px;
+                height: 50px;
+                border-radius: 10px;
+                border: none;
+                background-color: #f5f5f5;
+                color: black;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
     }
 
 </style>

@@ -1,76 +1,55 @@
 <script setup>
-    import { computed } from '@vue/reactivity';
-    import { onMounted, onUpdated, ref, toRefs, watch } from 'vue';
-    import {useStore} from "vuex"
-    
-    const store = useStore()
+    import {onMounted, ref, watch} from 'vue';
+    import {useHorseStore} from "../stores/use-horseData"
 
     const props = defineProps(["horse","start"])
 
+    const horseStore = useHorseStore()
+
     const horse = ref(props.horse)
 
-    const startFlag = computed( () => {
-        return store.state.startFlag
-    })
+    const horseAnimate = ref()
 
-    const finish = computed(() => {
-        return store.state.finishFlag
-    })
+    const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
-    // const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
+    // const audio2 = new Audio("http://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
 
-    const count = ref(0)
+    // const audio3 = new Audio("http://soundbible.com/mp3/Horse Whinny-SoundBible.com-1126369714.mp3")
 
     const run = () => {
-        if(horse.value.position < finish.value && !horse.value.isFinished){
-            // audio.play()
-            horse.value.speed = Math.floor(Math.random() * 15)+1
-            horse.value.position += horse.value.speed
-            count.value = count.value + 1
-            store.commit("updatePosition", {id : horse.value.id, position : horse.value.position, count : count.value})
-            setTimeout(() => {
-                run()
-            }, 100);
-        }
-        else{
-            console.log("girdi")
-            // audio.pause()
-            console.log(horse.value.isFinished)
-            // horse.value.isFinished = true
-            // horse.value.position = 0 ,
-            // count.value = 0,
-            // horse.value.speed = 0
-            store.commit("setStartFlag", false)
-            store.commit("setBoardActive", true)
-        }
+
     }
 
-    // onUpdated(() => {
-    //     if(startFlag.value){
-    //         setTimeout(() => {
-    //             run()
-    //         }, 100);
-    //     }
-    // //   setTimeout(() => {
-    // //     if(startFlag.value){
-    // //         run()
-    // //     }
-    // //   }, 100);
-    // })
+    const move = () => {
+        horseAnimate.value.style.left = horse.value.position + "px"
+        console.log(horseAnimate.value.style.left)
+        horse.value.speed = Math.round(Math.random() * 10)
+        horse.value.position = horse.value.position + horse.value.speed
+        const timer = setTimeout(() => {
+            console.log(horseStore.finishFlag)
+            if(horse.value.position < horseStore.finishFlag){
+                move()
+            }
+            else{
+                clearInterval(timer)
+                audio.play()
+                // audio2.play()
+                // audio3.play()
+            }
+        }, 100);
+    }
 
-    watch(startFlag, (newVal) => {
-        // console.log(newVal)
-        if(newVal){
-            run()
-        }
+    watch(() => horseStore.startFlag, () => {
+        move()
     })
 
 </script>
 
 <template>
-    <div class="horse" :style ="{left : `${horse.position}px`}" >
-        <div class="horse--name"></div>
-        <img class="horse--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
+    <div class="horse" >
+        <div ref="horseAnimate" class="horse--content">
+            <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
+        </div>
     </div>
 
 
@@ -79,32 +58,55 @@
 <style lang="scss" scoped>
     .horse {
         position: relative;
-        width: 100px;
+        width: 100%;
         height: 60px;
         z-index: 1;
-        margin: -10px;
+        margin: 10px 0px;
+        background-color: saddlebrown;
 
-        &--name {
+        &--content {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.5;
-            z-index: 1;
-        }
+            width: 100px;
+            height: 60px;
 
-        &--img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
+            &--img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
         }
-
     }
 
-
-
 </style>
+
+
+
+
+// const oldPosition = ref(0)
+// const newPosition = ref(20)
+
+// const move = () => {
+//     horseAnimate.value.animate([
+//         {transform: `translateX(${oldPosition.value}px)`},
+//         {transform: `translateX(${newPosition.value}px)`}
+//     ])
+//     oldPosition.value = newPosition.value
+//     newPosition.value = newPosition.value + Math.round(Math.random() * 500) + 1
+// }
+
+// const startTimer = () => {
+//     const timer = setTimeout(() => {
+//         if(horseStore.startFlag){
+//             move()
+//         }
+//     }, 1000);
+// }
+
+// onMounted(() => {
+//     startTimer()
+// })
