@@ -1,15 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import {useHorseStore} from "../stores/use-horseData"
+
 
 const routes = [
     {
         name : "Start",
         path : "/",
-        component : () => import("../Pages/StartPage.vue")
+        component : () => import("../views/StartPage.vue")
     },
     {
         name : "Home",
         path : "/home",
-        component : () => import("../Pages/HomePage.vue")
+        component : () => import("../views/HomePage.vue")
     }
 ]
 
@@ -17,5 +19,16 @@ const router = createRouter({
     routes,
     history : createWebHashHistory(),
 })
+
+router.beforeEach((to, from, next) => {
+    const horseStore = useHorseStore()
+    if(to.name === "Home" && !horseStore.selectedHorse) { // Home sayfasına giriş yapmadan önce bir at seçilmesi gerekir
+        next({name : "Start"})
+        alert("At seçmeden giriş yapamazsınız")
+    } else {
+        next()
+    }
+})
+
 
 export default router

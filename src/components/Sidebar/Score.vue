@@ -1,0 +1,106 @@
+<script setup>
+import { computed,onMounted,ref } from "vue"
+import {useHorseStore} from "../../stores/use-horseData"
+import StopWatch from "../Content/StopWatch.vue";
+import Avatar from "../Shared/Avatar.vue";
+const horseStore = useHorseStore()
+
+// const list = computed(() => store.state.horses)
+
+// const score = computed(() => {
+//     return list.value.sort((a,b) => b.position - a.position)
+// })
+
+// const score = computed(() => {
+//     return list.value.sort((a,b) => b.position - a.position)
+// })
+
+// const selectedID = computed ( () => (store.state.selectedHorse.id))
+
+
+</script>
+
+
+<template>
+    <div class="score">
+        <div class="score--list">
+            <table>
+                <tr>
+                    <th>Horse</th>
+                    <th>Name</th>
+                </tr>
+                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
+                    <td><Avatar :item="horse" :size="50"></Avatar></td>
+                    <td>{{horse.name}}</td>
+                    <!-- <td>{{horse.position}}</td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>
+
+
+<style lang="scss" scoped>
+
+    .score {
+        width: 90%;
+        height: 90%;
+        font-size: 12px;
+        background-color: 1px solid black;
+            &--list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                table {
+                    width: 100%;
+                    height: 80%;
+                    border-collapse: collapse;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+
+                    tr{
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        border-bottom: 1px solid #000;
+                        td {
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        th{
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+        }
+    
+    }
+
+    .selected {
+        background-color: red;
+        border: 2px solid #fff;
+    }
+
+
+
+
+</style>

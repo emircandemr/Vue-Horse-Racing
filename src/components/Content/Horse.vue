@@ -1,6 +1,7 @@
 <script setup>
     import {onMounted, ref, watch} from 'vue';
-    import {useHorseStore} from "../stores/use-horseData"
+    import {useHorseStore} from "../../stores/use-horseData"
+    import {stopwatch} from "../../utils/stopwatch"
 
     const props = defineProps(["horse","start"])
 
@@ -16,22 +17,18 @@
 
     // const audio3 = new Audio("http://soundbible.com/mp3/Horse Whinny-SoundBible.com-1126369714.mp3")
 
-    const run = () => {
-
-    }
-
     const move = () => {
         horseAnimate.value.style.left = horse.value.position + "px"
-        console.log(horseAnimate.value.style.left)
-        horse.value.speed = Math.round(Math.random() * 10)
+        horse.value.speed = Math.round(Math.random() * 15) + 2
         horse.value.position = horse.value.position + horse.value.speed
         const timer = setTimeout(() => {
-            console.log(horseStore.finishFlag)
             if(horse.value.position < horseStore.finishFlag){
                 move()
             }
             else{
-                clearInterval(timer)
+                clearTimeout(timer)
+                horseStore.setStartStopWatch(false)
+                horseStore.setLeaderBoard(true)
                 audio.play()
                 // audio2.play()
                 // audio3.play()

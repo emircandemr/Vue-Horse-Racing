@@ -1,7 +1,7 @@
 <script setup>
-    import {useHorseStore} from "../stores/use-horseData"
-    import Avatar from "../components/Avatar.vue";
-    import Score from "../components/Score.vue";
+    import {useHorseStore} from "../../stores/use-horseData"
+    import Avatar from "../Shared/Avatar.vue";
+    import Score from "./Score.vue";
     const horseStore = useHorseStore()
 
 </script>
@@ -9,7 +9,7 @@
 <template>
     <div class="aside">
         <div class="aside--header">
-            <Avatar :item="horseStore.selectedHorse"></Avatar>
+            <Avatar :item="horseStore.selectedHorse" :size="100"></Avatar>
             <h1 class="aside--header--title">{{horseStore.selectedHorse.name}}</h1>
         </div>
         <div class="aside--content">
@@ -23,9 +23,9 @@
 <style lang="scss" scoped>
 
 .aside {
-    width: 380px;
+    width: 300px;
     height: 100vh;
-    background-color: white;
+    background-color: seashell;
     color: black;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@
     align-items: center;
     padding: 10px;
     border-right: 1px solid #dbe5ed;
+
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
     &--header {

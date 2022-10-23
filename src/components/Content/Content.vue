@@ -1,7 +1,8 @@
 <script setup>
-    import Horse from '../components/Horse.vue';
-    import Finish from "../components/Finish.vue"
-    import {useHorseStore} from "../stores/use-horseData"
+    import {useHorseStore} from "../../stores/use-horseData"
+    import Horse from "./Horse.vue";
+    import Finish from "./Finish.vue";
+import StopWatch from "./StopWatch.vue";
     const horseStore = useHorseStore()
 </script>
 

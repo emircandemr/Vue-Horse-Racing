@@ -1,14 +1,8 @@
 <script setup>
-import { computed, reactive, ref } from "vue";
-import {useStore} from "vuex"
-import Finish from "../components/Finish.vue";
-import Horse from "../components/Horse.vue";
-import Score from "../components/Score.vue";
-import Button from "../components/Button.vue";
-import Countdown from "../components/Countdown.vue";
-import LeaderBoard from "../components/LeaderBoard.vue";
-import Sidebar from "../Layout/Sidebar.vue";
-import Content from "../Layout/Content.vue";
+import Sidebar from '../components/Sidebar/Sidebar.vue';
+import Content from '../components/Content/Content.vue';
+import Countdown from '../components/Content/Countdown.vue';
+import LeaderBoard from '../components/Content/LeaderBoard.vue';
 
 
 // const horses = ref(computed(() => store.state.horses))
@@ -61,6 +55,9 @@ import Content from "../Layout/Content.vue";
     </div>
     <Teleport to="body">
         <Countdown></Countdown>
+    </Teleport>
+    <Teleport to="body">
+        <LeaderBoard></LeaderBoard>
     </Teleport>
 </template>
 

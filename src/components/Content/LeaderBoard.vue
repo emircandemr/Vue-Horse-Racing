@@ -1,27 +1,21 @@
-
 <script setup>
-import { computed,onMounted,ref } from "vue"
-import {useStore} from "vuex"
-const store = useStore()
+import {useHorseStore} from "../../stores/use-horseData"
+const horseStore = useHorseStore()
 
-const list = computed(() => store.state.horses)
 
-const boardActive = computed(() => store.state.isBoardActive)
-
-const score = computed(() => {
-    return list.value.sort((a,b) => b.position - a.position)
-})
-
-// const selectedID = computed ( () => (store.state.selectedHorse))
+const closeHandler = () => {
+    horseStore.setLeaderBoard(false)
+}
 
 </script>
 
 <template>
-    <div v-if="boardActive" class="board--modal">
+    <div v-if="horseStore.getLeaderBoard" class="board--modal">
         <div class="board--modal--layer"></div>
         <div class="board--modal--content">
             <div class="board--modal--content--header">
                 <h1>Leader Board</h1>
+                <div @click="closeHandler" class="close" >X</div>
             </div>
             <div class="board--modal--content--body">
                 <table>
@@ -30,7 +24,7 @@ const score = computed(() => {
                         <th>Horse</th>
                         <th>Position</th>
                     </tr>
-                    <tr v-for="(horse, index) in score" :key="horse.id" >
+                    <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
                         <td>{{index + 1}}</td>
                         <td>{{horse.name}}</td>
                         <td>{{horse.position}}</td>
@@ -38,7 +32,8 @@ const score = computed(() => {
                 </table>
             </div>
             <div class="board--modal--content--footer">
-                <button @click="store.commit('setBoardActive', false)">Close</button>
+                <button>Back to Avatar</button>
+                <button>Play Again</button>
             </div>
         </div>
         
@@ -86,6 +81,22 @@ const score = computed(() => {
                 align-items: center;
                 justify-content: center;
                 border-bottom: 1px solid #fff;
+
+                .close{
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    background: #fff;
+                    color: #000;
+                    cursor: pointer;
+                }
+
             }
 
             &--body {
@@ -133,6 +144,7 @@ const score = computed(() => {
                     background-color: #dcdcdc;
                     border: none;
                     cursor: pointer;
+                    margin: 1rem;
 
                     &:hover {
                         background-color: #000;

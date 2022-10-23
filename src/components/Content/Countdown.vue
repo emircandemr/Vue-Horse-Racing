@@ -1,6 +1,6 @@
 <script setup>
     import { computed, onMounted, onUpdated, ref, watch } from 'vue';
-    import {useHorseStore} from "../stores/use-horseData"
+    import {useHorseStore} from  "../../stores/use-horseData"
 
     const horseStore = useHorseStore()
 
@@ -24,6 +24,7 @@
                 horseStore.setStartFlag(true)
                 audio2.play()
                 horseStore.setCountdownActive(false)
+                horseStore.setStartStopWatch(true)
             }
         }, 1000);
     })

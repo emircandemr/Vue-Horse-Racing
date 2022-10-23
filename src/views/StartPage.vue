@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted } from "vue";
 import horseData from "../assets/data/horses.json"
-import Avatar from "../components/Avatar.vue";
 import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
+import Avatar from "../components/Shared/Avatar.vue";
 
 const horseStore = useHorseStore()
 const router = useRouter()
@@ -23,7 +23,7 @@ const startHandler = () => {
     <div class="select" >
         <h1 class="select--title">Choose Your Avatar</h1>
         <div class="select--content" >
-            <Avatar v-for="item in horseStore.horses" :item="item" ></Avatar>
+            <Avatar v-for="item in horseStore.horses" :item="item" :size="180" ></Avatar>
         </div>
         <div class="select--start" >
             <button @click="startHandler">Start</button>
@@ -56,6 +56,7 @@ const startHandler = () => {
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
         &--start{
