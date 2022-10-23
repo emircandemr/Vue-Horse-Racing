@@ -66,10 +66,11 @@ import LeaderBoard from '../components/Content/LeaderBoard.vue';
 
 .main {
     display: flex;
+    place-items: center;
     width: 100%;
     height: 100vh;
     color: #fff;
-    background-color: sandybrown;
+    background-color: rgba(0, 0, 1, 0.982);
     &--content {
         width: calc(100% - 380px);
         height: 100%;

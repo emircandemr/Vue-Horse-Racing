@@ -1,9 +1,18 @@
 <script setup>
 import {useHorseStore} from "../../stores/use-horseData"
+import horseData from "../../assets/data/horses.json"
+
 const horseStore = useHorseStore()
 
 
 const closeHandler = () => {
+    horseStore.setLeaderBoard(false)
+}
+
+const againHandler = () => {
+    horseStore.resetPosition()
+    horseStore.setStartFlag(false)
+    horseStore.setCountdownActive(true)
     horseStore.setLeaderBoard(false)
 }
 
@@ -24,7 +33,7 @@ const closeHandler = () => {
                         <th>Horse</th>
                         <th>Position</th>
                     </tr>
-                    <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
+                    <tr v-for="(horse, index) in horseStore.sortHorse" :key="horse.id" >
                         <td>{{index + 1}}</td>
                         <td>{{horse.name}}</td>
                         <td>{{horse.position}}</td>
@@ -33,7 +42,7 @@ const closeHandler = () => {
             </div>
             <div class="board--modal--content--footer">
                 <button>Back to Avatar</button>
-                <button>Play Again</button>
+                <button @click="againHandler" >Play Again</button>
             </div>
         </div>
         

@@ -23,17 +23,16 @@
 <style lang="scss" scoped>
 
 .aside {
-    width: 300px;
-    height: 100vh;
-    background-color: seashell;
-    color: black;
+    width: 250px;
+    height: 80vh;
+    background-color: #121212;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px;
-    border-right: 1px solid #dbe5ed;
-
+    border-radius: 15px;
+    margin-left: 15px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
     &--header {
@@ -51,7 +50,6 @@
 
     &--content {
         width: 100%;
-        height: 60%;
         margin-top: 10px;
         display: flex;
         align-items: center;
@@ -60,7 +58,6 @@
 
     &--footer {
         width: 100%;
-        height: 20%;
         display: flex;
         align-items: center;
         justify-content: center;

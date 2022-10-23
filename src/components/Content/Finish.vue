@@ -32,7 +32,7 @@ onMounted(() => {
         height: 100vh;
         display: flex;
         place-items: center;
-        background-color: black;
+        background : gray;
         z-index: 99;
         &--flag {
             width: 50px;

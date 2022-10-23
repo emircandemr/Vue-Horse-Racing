@@ -9,7 +9,8 @@ import StopWatch from "./StopWatch.vue";
 <template>
     <div class="container">
         {{horseStore.startFlag}}  
-        {{horseStore.finishFlag}}  
+        {{horseStore.finishFlag}} 
+        {{horseStore.horses[0].position}} 
         <Horse v-for="horse in horseStore.horses" :horse="horse" />
         <Finish></Finish>
     </div>
@@ -25,9 +26,10 @@ import StopWatch from "./StopWatch.vue";
         flex-direction: column;
         justify-content: center;
         padding: 0px 10px;
-        color: red;
-        background-color: green;
-
+        color: black;
+        background-color: #212121;
+        border-radius: 15px;
+        margin-left: 15px;
     }
 
 </style>

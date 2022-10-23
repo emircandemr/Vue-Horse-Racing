@@ -72,7 +72,7 @@ const horseStore = useHorseStore()
                         flex-direction: row;
                         align-items: center;
                         justify-content: center;
-                        border-bottom: 1px solid #000;
+                        border-bottom: 1px solid white;
                         td {
                             width: 50%;
                             height: 100%;

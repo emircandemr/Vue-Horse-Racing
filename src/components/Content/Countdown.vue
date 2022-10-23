@@ -1,5 +1,5 @@
 <script setup>
-    import { computed, onMounted, onUpdated, ref, watch } from 'vue';
+    import { computed, onMounted, onUpdated, ref, watch, watchEffect } from 'vue';
     import {useHorseStore} from  "../../stores/use-horseData"
 
     const horseStore = useHorseStore()
@@ -13,7 +13,7 @@
     const audio = new Audio("http://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
     const audio2 = new Audio("http://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
 
-    onMounted( () => {
+    const startTimer = () => {
         const timer = setInterval(() => {
             if(countdown.value > 0){
                 start()
@@ -24,10 +24,18 @@
                 horseStore.setStartFlag(true)
                 audio2.play()
                 horseStore.setCountdownActive(false)
-                horseStore.setStartStopWatch(true)
             }
         }, 1000);
+    }
+
+    watchEffect(() => {
+        if(horseStore.countdownActive){
+            countdown.value = 3
+            startTimer()
+        }
     })
+
+
     // onUpdated(() => {
     //     console.log("girdi")
     //     if(isActive){
@@ -102,7 +110,7 @@
         h1{
             font-size: 100px;
             font-weight: 700;
-            color: #121212;
+            color: white;
         }
     }
 }

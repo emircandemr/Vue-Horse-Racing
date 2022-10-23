@@ -1,7 +1,6 @@
 <script setup>
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
-    import {stopwatch} from "../../utils/stopwatch"
 
     const props = defineProps(["horse","start"])
 
@@ -27,6 +26,7 @@
             }
             else{
                 clearTimeout(timer)
+                horseStore.setSortHorse(horse.value)
                 horseStore.setStartStopWatch(false)
                 horseStore.setLeaderBoard(true)
                 audio.play()
@@ -37,7 +37,9 @@
     }
 
     watch(() => horseStore.startFlag, () => {
-        move()
+        if(horseStore.startFlag){
+            move()
+        }
     })
 
 </script>
@@ -45,6 +47,7 @@
 <template>
     <div class="horse" >
         <div ref="horseAnimate" class="horse--content">
+            <!-- <h2>{{horse.id}}</h2> -->
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
         </div>
     </div>
@@ -59,7 +62,7 @@
         height: 60px;
         z-index: 1;
         margin: 10px 0px;
-        background-color: saddlebrown;
+        background-color: #121212;
 
         &--content {
             position: absolute;

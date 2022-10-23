@@ -17,6 +17,7 @@ const startHandler = () => {
     horseStore.setCountdownActive(true)
 }
 
+
 </script>
 
 <template>
@@ -42,6 +43,7 @@ const startHandler = () => {
         align-items: center;
         justify-content: center;
         background-color: #121212;
+        color: white;
 
         &--title{
             color: white;
