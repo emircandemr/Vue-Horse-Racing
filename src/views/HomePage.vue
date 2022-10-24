@@ -52,6 +52,7 @@ import LeaderBoard from '../components/Content/LeaderBoard.vue';
         <!-- <Horse v-for="horse in horses"  :horse="horse"  /> -->
         <!-- <Score  /> -->
         <!-- <LeaderBoard/> -->
+        
     </div>
     <Teleport to="body">
         <Countdown></Countdown>
@@ -70,9 +71,10 @@ import LeaderBoard from '../components/Content/LeaderBoard.vue';
     width: 100%;
     height: 100vh;
     color: #fff;
-    background-color: rgba(0, 0, 1, 0.982);
+    background-color: #212121;
+    // background-color: rgba(0, 0, 1, 0.982);
     &--content {
-        width: calc(100% - 380px);
+        width: calc(100% - 280px);
         height: 100%;
         display: flex;
         place-items: center;    

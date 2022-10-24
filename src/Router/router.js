@@ -24,10 +24,10 @@ router.beforeEach((to, from, next) => {
     const horseStore = useHorseStore()
     if(to.name === "Home" && !horseStore.selectedHorse) { // Home sayfasına giriş yapmadan önce bir at seçilmesi gerekir
         next({name : "Start"})
-        alert("At seçmeden giriş yapamazsınız")
-    } else {
-        next()
+        // alert("At seçmeden giriş yapamazsınız")
     }
+    next()
+
 })
 
 

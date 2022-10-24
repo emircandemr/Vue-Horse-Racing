@@ -15,14 +15,15 @@
 
     const startTimer = () => {
         const timer = setInterval(() => {
-            if(countdown.value > 0){
+            if(countdown.value > 1){
                 start()
                 audio.play()
             }
             else{
+                audio.pause()
+                audio2.play()
                 clearInterval(timer)
                 horseStore.setStartFlag(true)
-                audio2.play()
                 horseStore.setCountdownActive(false)
             }
         }, 1000);

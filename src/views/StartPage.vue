@@ -1,23 +1,22 @@
 <script setup>
-import { onMounted } from "vue";
-import horseData from "../assets/data/horses.json"
+import { onMounted, ref } from "vue";
 import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
 import Avatar from "../components/Shared/Avatar.vue";
+import {getHorses} from "../services/horseService"
 
 const horseStore = useHorseStore()
 const router = useRouter()
 
-onMounted(() => {
-  horseStore.setHorses(horseData)
+onMounted(async () => {
+    horseStore.setHorses(await getHorses())
 })
 
 const startHandler = () => {
     router.push("/home")
     horseStore.setCountdownActive(true)
+    // updateHorse(horseStore.selectedHorse.id, horseStore.selectedHorse)
 }
-
-
 </script>
 
 <template>
@@ -27,7 +26,7 @@ const startHandler = () => {
             <Avatar v-for="item in horseStore.horses" :item="item" :size="180" ></Avatar>
         </div>
         <div class="select--start" >
-            <button @click="startHandler">Start</button>
+            <button v-if="horseStore.selectedHorse" @click="startHandler">Start</button>
         </div>
     </div>
 </template>
@@ -70,11 +69,11 @@ const startHandler = () => {
             margin-top: 2rem;
 
             button{
-                width: 200px;
-                height: 50px;
-                border-radius: 10px;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
                 border: none;
-                background-color: #f5f5f5;
+                background-color: white;
                 color: black;
                 font-size: 1.5rem;
                 cursor: pointer;

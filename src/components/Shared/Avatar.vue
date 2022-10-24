@@ -23,6 +23,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: white;
+        border-radius: 50%;
         // margin: 1rem;
         &--img{
             width: 100%;
@@ -32,7 +34,7 @@
             cursor: pointer;
             transition: 0.5s ease all; 
             &:hover{
-                transform: scale(1.1);
+                transform: scale(1.2);
             }
 
         }

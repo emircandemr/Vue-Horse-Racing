@@ -2,7 +2,6 @@
     import {useHorseStore} from "../../stores/use-horseData"
     import Horse from "./Horse.vue";
     import Finish from "./Finish.vue";
-import StopWatch from "./StopWatch.vue";
     const horseStore = useHorseStore()
 </script>
 
@@ -13,6 +12,7 @@ import StopWatch from "./StopWatch.vue";
         {{horseStore.horses[0].position}} 
         <Horse v-for="horse in horseStore.horses" :horse="horse" />
         <Finish></Finish>
+
     </div>
 
 </template>
@@ -25,9 +25,10 @@ import StopWatch from "./StopWatch.vue";
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
         padding: 0px 10px;
-        color: black;
-        background-color: #212121;
+        color: white;
+        background-color: #121212;
         border-radius: 15px;
         margin-left: 15px;
     }

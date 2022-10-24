@@ -12,24 +12,20 @@
 
     const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
-    // const audio2 = new Audio("http://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
-
-    // const audio3 = new Audio("http://soundbible.com/mp3/Horse Whinny-SoundBible.com-1126369714.mp3")
-
     const move = () => {
         horseAnimate.value.style.left = horse.value.position + "px"
         horse.value.speed = Math.round(Math.random() * 15) + 2
         horse.value.position = horse.value.position + horse.value.speed
+        audio.play()
         const timer = setTimeout(() => {
             if(horse.value.position < horseStore.finishFlag){
                 move()
             }
             else{
                 clearTimeout(timer)
+                audio.pause()
                 horseStore.setSortHorse(horse.value)
-                horseStore.setStartStopWatch(false)
                 horseStore.setLeaderBoard(true)
-                audio.play()
                 // audio2.play()
                 // audio3.play()
             }
@@ -47,7 +43,6 @@
 <template>
     <div class="horse" >
         <div ref="horseAnimate" class="horse--content">
-            <!-- <h2>{{horse.id}}</h2> -->
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
         </div>
     </div>
@@ -58,14 +53,18 @@
 <style lang="scss" scoped>
     .horse {
         position: relative;
-        width: 100%;
+        width: 95%;
         height: 60px;
         z-index: 1;
         margin: 10px 0px;
-        background-color: #121212;
+        background-color: #212121;
+        // border-radius: 25px;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
 
         &--content {
             position: absolute;
+            display: flex;
             top: 0;
             left: 0;
             width: 100px;

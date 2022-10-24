@@ -1,0 +1,71 @@
+[
+    {
+        "id" : 1,
+        "name" : "Lucky",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "distance" : 0,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578158-20692886-e02d-46e2-8f9f-3da8ce90c551.png"
+        
+    },
+    {
+        "id" : 2,
+        "name" : "Bronco",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578360-ba36036f-cbb6-4398-b1ea-046fb9ca8545.png"
+    },
+    {
+        "id" : 3,
+        "name" : "Rushmore",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578452-1df675c9-2254-46bd-8dd8-b23828903035.png"
+    },    {
+        "id" : 4,
+        "name" : "Quarterback",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578537-63fae236-bf08-4111-b594-5cb073f0d921.png"
+    },    {
+        "id" : 5,
+        "name" : "Blacksmith",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578620-ce1c524d-ff51-47d0-b655-a7d93b2e791c.png"
+    },    {
+        "id" : 6,
+        "name" : "Buckeye",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578722-3b312aee-a719-4dfd-9202-11e71ce0f4d4.png"
+    },    {
+        "id" : 7,
+        "name" : "Franklin",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197578800-92fb7aec-190f-4b47-b580-66c5528901f8.png"
+    },    {
+        "id" : 8,
+        "name" : "Sheriff",
+        "speed" : 0 ,
+        "position" : 0,
+        "isFinished" : false,
+        "winnerCount" : 0 ,
+        "img" : "https://user-images.githubusercontent.com/72731296/197580021-3285aa7b-a87d-4e20-8230-abadce8edc00.png"
+    }
+]

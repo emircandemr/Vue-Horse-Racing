@@ -9,7 +9,7 @@ const flag = ref()
 
 onMounted(() => {
     console.log(flag)
-    horseStore.setFinishFlag((flag.value.offsetLeft-300))
+    horseStore.setFinishFlag((flag.value.offsetLeft-15))
     // store.commit("setFinishFlag", flag.value.offsetLeft)
 })
 
@@ -25,11 +25,11 @@ onMounted(() => {
 
 <style lang="scss" scoped>
     .finish--line {
-        position: fixed;
+        position: absolute;
         top: 0;
-        right: 150px;
-        width: 5px;
-        height: 100vh;
+        right: 5%;
+        width: 10px;
+        height: 100%;
         display: flex;
         place-items: center;
         background : gray;
