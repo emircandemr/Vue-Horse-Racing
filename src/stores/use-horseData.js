@@ -8,8 +8,9 @@ export const useHorseStore = defineStore("horse-store",{
             startFlag : false,
             countdownActive : false,
             finishFlag : null,
-            leaderBoard : false,
-            sortHorse : []
+            leaderBoard : true,
+            sortHorse : [],
+            isStatistic : false,
         }
     },
     actions : {
@@ -33,6 +34,9 @@ export const useHorseStore = defineStore("horse-store",{
         },
         setSortHorse(horse){
             this.sortHorse.push(horse);
+        },
+        setIsStatistic(statu) {
+            this.isStatistic = statu;
         },
         resetPosition() {
             this.horses.forEach(horse => {

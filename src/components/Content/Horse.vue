@@ -2,7 +2,7 @@
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
 
-    const props = defineProps(["horse","start"])
+    const props = defineProps(["horse","start","index"])
 
     const horseStore = useHorseStore()
 
@@ -42,12 +42,13 @@
 
 <template>
     <div class="horse" >
+        <div class="horse__number">
+            {{props.index+1}}
+        </div>
         <div ref="horseAnimate" class="horse--content">
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
         </div>
     </div>
-
-
 </template>
 
 <style lang="scss" scoped>
@@ -55,12 +56,34 @@
         position: relative;
         width: 95%;
         height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         z-index: 1;
         margin: 10px 0px;
+        // background-color: rgb(178,54,20);
         background-color: #212121;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
         // border-radius: 25px;
-        border-bottom-left-radius: 20px;
-        border-top-left-radius: 20px;
+        // border-bottom-left-radius: 20px;
+        // border-top-left-radius: 20px;
+
+
+        &__number{
+            position: absolute;
+            left: 30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            z-index: 2;
+        }
 
         &--content {
             position: absolute;
@@ -69,7 +92,7 @@
             left: 0;
             width: 100px;
             height: 60px;
-
+            
             &--img {
                 position: absolute;
                 top: 0;
@@ -77,6 +100,7 @@
                 width: 100%;
                 height: 100%;
                 z-index: 99;
+
             }
         }
     }

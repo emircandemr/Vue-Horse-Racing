@@ -10,7 +10,7 @@
         {{horseStore.startFlag}}  
         {{horseStore.finishFlag}} 
         {{horseStore.horses[0].position}} 
-        <Horse v-for="horse in horseStore.horses" :horse="horse" />
+        <Horse v-for="(horse,index) in horseStore.horses" :horse="horse" :index="index" :key="index"/>
         <Finish></Finish>
 
     </div>

@@ -2,7 +2,8 @@
 import Sidebar from '../components/Sidebar/Sidebar.vue';
 import Content from '../components/Content/Content.vue';
 import Countdown from '../components/Content/Countdown.vue';
-import LeaderBoard from '../components/Content/LeaderBoard.vue';
+import LeaderBoard from '../components/Content/FinishModal.vue';
+import Statistics from '../components/Content/Statistics.vue';
 
 
 // const horses = ref(computed(() => store.state.horses))
@@ -59,6 +60,9 @@ import LeaderBoard from '../components/Content/LeaderBoard.vue';
     </Teleport>
     <Teleport to="body">
         <LeaderBoard></LeaderBoard>
+    </Teleport>
+    <Teleport to="body">
+        <Statistics></Statistics>
     </Teleport>
 </template>
 
