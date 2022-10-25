@@ -1,6 +1,7 @@
 <script setup>
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
+    import {updateHorse} from "../../services/horseService";
 
     const props = defineProps(["horse","start","index"])
 
@@ -25,6 +26,7 @@
                 clearTimeout(timer)
                 audio.pause()
                 horseStore.setSortHorse(horse.value)
+                // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
                 horseStore.setLeaderBoard(true)
                 // audio2.play()
                 // audio3.play()
@@ -45,6 +47,9 @@
         <div class="horse__number">
             {{props.index+1}}
         </div>
+        <div class="horse__name">
+            {{props.horse.name}}
+        </div>
         <div ref="horseAnimate" class="horse--content">
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
         </div>
@@ -63,8 +68,8 @@
         margin: 10px 0px;
         // background-color: rgb(178,54,20);
         background-color: #212121;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
+        border-top: 2px solid gray;
+        border-bottom: 2px solid gray;
         // border-radius: 25px;
         // border-bottom-left-radius: 20px;
         // border-top-left-radius: 20px;
@@ -76,11 +81,26 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid gray;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            color: white;
+            z-index: 2;
+        }
+
+        &__name{
+            position: absolute;
+            left: 70px;
+            width: 8 0px;
+            height: 30px;
+            border: 2px solid gray;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
             color: white;
             z-index: 2;
         }

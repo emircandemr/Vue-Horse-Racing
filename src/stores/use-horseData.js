@@ -8,7 +8,7 @@ export const useHorseStore = defineStore("horse-store",{
             startFlag : false,
             countdownActive : false,
             finishFlag : null,
-            leaderBoard : true,
+            leaderBoard : false,
             sortHorse : [],
             isStatistic : false,
         }
@@ -56,11 +56,17 @@ export const useHorseStore = defineStore("horse-store",{
         getCountdownActive() {
             return this.countdownActive;
         },
-        sortHorses() {
-            return this.horses.sort((a,b) => a.position - b.position);
-        },
+        // sortHorses() {
+        //     return this.horses.sort((a,b) => a.position - b.position);
+        // },
         getLeaderBoard() {
             return this.leaderBoard;
+        },
+        getWinnerCount () {
+            return this.horses.map(horse => horse.winnerCount);
+        },
+        getHorseName (){
+            return this.horses.map(horse => horse.name);
         }
     }
 })

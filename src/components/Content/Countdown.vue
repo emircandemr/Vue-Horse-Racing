@@ -23,7 +23,7 @@
                 audio.pause()
                 audio2.play()
                 clearInterval(timer)
-                // horseStore.setStartFlag(true)
+                horseStore.setStartFlag(true)
                 horseStore.setCountdownActive(false)
             }
         }, 1000);

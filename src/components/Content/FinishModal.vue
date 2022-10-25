@@ -44,27 +44,24 @@ const selectData = ref([
 </script>
 
 <template>
-    <div v-if="horseStore.getLeaderBoard" class="board">
-        <div class="board__layer"></div>
-        <div class="board__header">
-            <select v-model="selected" @change="selectHandler()" class="board__header--select" >
+    <div v-if="horseStore.getLeaderBoard" class="modal">
+        <div class="modal__layer"></div>
+        <div class="modal__content">
+            <select v-model="selected" class="modal__content--select" >
                     <option v-for="select in selectData" :key="select.id" :value="select.name" >{{select.name}}</option>
             </select>
-            <div class="board__header--header">
-                <h1 class="title">{{selected}}</h1>
-            </div>
-            <div class="board__content">
-                <ScoreBoard v-if="selected === 'LeaderBoard'" />
-                <Statistics v-if="selected === 'Statistics'" />
-            </div>
-
+            <h1 class="modal__content--title">{{selected}}</h1>
+        <div class="modal__component">
+            <ScoreBoard v-if="selected === 'LeaderBoard'" />
+            <Statistics v-if="selected === 'Statistics'" />
         </div>
+    </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 
-    .board {
+    .modal {
         position: fixed;
         top: 0;
         left: 0;
@@ -85,16 +82,7 @@ const selectData = ref([
             background: rgba(0,0,0,0.5);
         }
 
-        &__content{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &__header {
+        &__content {
             position: relative;
             width: 50%;
             height: 70%;
@@ -106,6 +94,12 @@ const selectData = ref([
             // align-items: center;
             // justify-content: center;
             color: aliceblue;
+
+            &--title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin: 1rem 0px;
+            }
 
             &--select {
                 width: 200px;
@@ -119,44 +113,15 @@ const selectData = ref([
                 padding: 0 10px;
                 outline: none;
                 cursor: pointer;
-            }
-
-            &--header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 2rem;
-                margin-left: 0.5rem;
-
-                .title {
-                    font-size: 20px;
-                    font-weight: 700;
                 }
-            }
-
             
-                &--button {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    button {
-                        background-color:#121212;
-                        padding: 10px;
-                        margin: 1rem;
-                        border-radius: 10px;
-                        color: aliceblue;
-                        font-size: 14px;
-                        cursor: pointer;
-
-                        &:hover {
-                            background-color: #212121;
-                        }
-
-                    }
-                }
-
-
+            &__component{
+                width: 100%;
+                height: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
 
             }
         }
