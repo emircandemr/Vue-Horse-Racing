@@ -21,16 +21,17 @@
 //     }
 //     return value;   
 // }
-// // if(millisecond.value < 100){
-// //     millisecond.value = millisecond.value + 1
-// // }
-// // else{
-// //     millisecond.value = 0
-// //     if(second.value < 60){
-// //         second.value = second.value + 1
-// //     }
-// //     else{
-// //         second.value = 0
-// //         minute.value = minute.value + 1
-// //     }
-// // }
+
+// if(millisecond.value < 100){
+//     millisecond.value = millisecond.value + 1
+// }
+// else{
+//     millisecond.value = 0
+//     if(second.value < 60){
+//         second.value = second.value + 1
+//     }
+//     else{
+//         second.value = 0
+//         minute.value = minute.value + 1
+//     }
+// }

@@ -1,7 +1,8 @@
 <script setup>
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
-    import {updateHorse} from "../../services/horseService";
+    // import {updateHorse} from "../../services/horseService";
+import Avatar from '../Shared/Avatar.vue';
 
     const props = defineProps(["horse","start","index"])
 
@@ -12,6 +13,31 @@
     const horseAnimate = ref()
 
     const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
+
+    const minute = ref(0)
+    const seconds = ref(0)
+    const milliseconds = ref(0)
+
+
+    const stopwatch = () => {
+        const timer = setInterval(() => {
+            if(horseStore.startFlag){
+                milliseconds.value++
+                if (milliseconds.value === 100) {
+                    milliseconds.value = 0
+                    seconds.value++
+                }
+                if (seconds.value === 60) {
+                    seconds.value = 0
+                    minute.value++
+                }
+            }
+            else{
+                clearInterval(timer)
+            }
+        }, 10)
+
+}
 
     const move = () => {
         horseAnimate.value.style.left = horse.value.position + "px"
@@ -25,11 +51,10 @@
             else{
                 clearTimeout(timer)
                 audio.pause()
+                horseStore.setStartFlag(false)
                 horseStore.setSortHorse(horse.value)
                 // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
-                horseStore.setLeaderBoard(true)
-                // audio2.play()
-                // audio3.play()
+                // horseStore.setLeaderBoard(true)
             }
         }, 100);
     }
@@ -37,6 +62,7 @@
     watch(() => horseStore.startFlag, () => {
         if(horseStore.startFlag){
             move()
+            stopwatch()
         }
     })
 
@@ -44,11 +70,12 @@
 
 <template>
     <div class="horse" >
+        {{minute}} : {{seconds}} : {{milliseconds}} 
         <div class="horse__number">
             {{props.index+1}}
         </div>
         <div class="horse__name">
-            {{props.horse.name}}
+            <Avatar :item="props.horse" :size="40" ></Avatar>
         </div>
         <div ref="horseAnimate" class="horse--content">
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
@@ -77,7 +104,7 @@
 
         &__number{
             position: absolute;
-            left: 30px;
+            right: 30px;
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -92,16 +119,10 @@
 
         &__name{
             position: absolute;
-            left: 70px;
-            width: 8 0px;
-            height: 30px;
-            border: 2px solid gray;
-            border-radius: 20px;
+            left: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            color: white;
             z-index: 2;
         }
 

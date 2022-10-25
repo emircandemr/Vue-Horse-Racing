@@ -56,9 +56,9 @@ export const useHorseStore = defineStore("horse-store",{
         getCountdownActive() {
             return this.countdownActive;
         },
-        // sortHorses() {
-        //     return this.horses.sort((a,b) => a.position - b.position);
-        // },
+        sortHorses() {
+            return this.horses.sort((a,b) => a.position - b.position);
+        },
         getLeaderBoard() {
             return this.leaderBoard;
         },
