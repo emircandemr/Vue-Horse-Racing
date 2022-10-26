@@ -20,7 +20,7 @@ describe("RaceStartView", () => {
     it("should render a button", () => {
         // expect(wrapper.find("button").exists()).toBe(true);
         // expect(wrapper.find("button").text()).toBe("Start");
-        expect(wrapper.html()).include("Start");
+        expect(wrapper.html()).toContain("Start");
         // expect(wrapper.exists()).toBe(true);
         // expect(wrapper.contain("Choose Your Avatar")).toBe(true);
     });
