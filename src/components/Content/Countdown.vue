@@ -25,6 +25,7 @@
                 clearInterval(timer)
                 horseStore.setStartFlag(true)
                 horseStore.setCountdownActive(false)
+                horseStore.setIsStopwatch(true)
             }
         }, 1000);
     }

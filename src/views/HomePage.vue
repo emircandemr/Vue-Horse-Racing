@@ -3,8 +3,9 @@ import Sidebar from '../components/Sidebar/Sidebar.vue';
 import Content from '../components/Content/Content.vue';
 import Countdown from '../components/Content/Countdown.vue';
 import LeaderBoard from '../components/Content/FinishModal.vue';
-import Statistics from '../components/Content/Statistics.vue';
+import {useHorseStore} from  "../stores/use-horseData"
 
+const horseStore = useHorseStore()
 
 // const horses = ref(computed(() => store.state.horses))
 // const startFlag = computed(() => store.state.startFlag)
@@ -61,9 +62,9 @@ import Statistics from '../components/Content/Statistics.vue';
     <Teleport to="body">
         <LeaderBoard></LeaderBoard>
     </Teleport>
-    <Teleport to="body">
+    <!-- <Teleport to="body">
         <Statistics></Statistics>
-    </Teleport>
+    </Teleport> -->
 </template>
 
 

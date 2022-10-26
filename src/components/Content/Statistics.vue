@@ -40,12 +40,12 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 <template>
     <div class="statistic">
-    <Bar
-    :chart-options="chartOptions"
-    :chart-data="chartData"
-    :width="width"
-    :height="height"
-    />
+      <Bar
+      :chart-options="chartOptions"
+      :chart-data="chartData"
+      :width="width"
+      :height="height"
+      />
     </div>
 </template>
 

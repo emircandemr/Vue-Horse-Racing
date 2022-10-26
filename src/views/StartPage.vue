@@ -10,6 +10,7 @@ const router = useRouter()
 
 onMounted(async () => {
     horseStore.setHorses(await getHorses())
+    horseStore.setSortTyr(await getHorses())
 })
 
 const startHandler = () => {

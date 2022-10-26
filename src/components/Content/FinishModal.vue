@@ -41,21 +41,30 @@ const selectData = ref([
     }
 ])
 
+const selectHandler = (e) => {
+    selected.value = e.target.value
+    console.log(e.target.value)
+}
+
+
+
 </script>
 
 <template>
     <div v-if="horseStore.getLeaderBoard" class="modal">
+        {{selected}}
         <div class="modal__layer"></div>
         <div class="modal__content">
-            <select v-model="selected" class="modal__content--select" >
+            <select v-model="selected" @change="selectHandler" class="modal__content--select" >
                     <option v-for="select in selectData" :key="select.id" :value="select.name" >{{select.name}}</option>
             </select>
             <h1 class="modal__content--title">{{selected}}</h1>
-        <div class="modal__component">
-            <ScoreBoard v-if="selected === 'LeaderBoard'" />
-            <Statistics v-if="selected === 'Statistics'" />
+            <div class="modal__component">
+                <ScoreBoard v-if="selected === 'LeaderBoard'" />
+                <Statistics v-else />
+            </div>
+
         </div>
-    </div>
     </div>
 </template>
 
@@ -123,8 +132,24 @@ const selectData = ref([
                 justify-content: center;
             }
 
+            &__button {
+                width: 100px;
+                height: 40px;
+                border: none;
+                border-radius: 10px;
+                background-color: #121212;
+                color: white;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 0 10px;
+                outline: none;
+                cursor: pointer;
+                margin: 1rem 0px;
+
+
             }
         }
+    }
 
 
 

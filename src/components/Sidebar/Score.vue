@@ -17,7 +17,6 @@ const horseStore = useHorseStore()
 
 // const selectedID = computed ( () => (store.state.selectedHorse.id))
 
-
 </script>
 
 

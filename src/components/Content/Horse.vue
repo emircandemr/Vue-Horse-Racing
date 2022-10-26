@@ -14,47 +14,43 @@ import Avatar from '../Shared/Avatar.vue';
 
     const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
-    const minute = ref(0)
-    const seconds = ref(0)
-    const milliseconds = ref(0)
-
-
     const stopwatch = () => {
         const timer = setInterval(() => {
-            if(horseStore.startFlag){
-                milliseconds.value++
-                if (milliseconds.value === 100) {
-                    milliseconds.value = 0
-                    seconds.value++
+            if(horse.value.position < horseStore.finishFlag){
+                horse.value.stopwatch.milliseconds++
+                if (horse.value.stopwatch.milliseconds === 100) {
+                    horse.value.stopwatch.milliseconds= 0
+                    horse.value.stopwatch.seconds++
                 }
-                if (seconds.value === 60) {
-                    seconds.value = 0
-                    minute.value++
+                if (horse.value.stopwatch.seconds === 60) {
+                    horse.value.stopwatch.seconds = 0
+                    horse.value.stopwatch.minute++
                 }
             }
             else{
                 clearInterval(timer)
             }
         }, 10)
-
 }
 
     const move = () => {
         horseAnimate.value.style.left = horse.value.position + "px"
-        horse.value.speed = Math.round(Math.random() * 15) + 2
-        horse.value.position = horse.value.position + horse.value.speed
+        horse.value.speed =Math.round(Math.random() * 15) + 2
+        horse.value.position += horse.value.speed
         audio.play()
         const timer = setTimeout(() => {
             if(horse.value.position < horseStore.finishFlag){
                 move()
+                horseStore.updatedHorse(horse.value)
             }
             else{
+                horseStore.setIsStopwatch(false)
                 clearTimeout(timer)
                 audio.pause()
                 horseStore.setStartFlag(false)
                 horseStore.setSortHorse(horse.value)
                 // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
-                // horseStore.setLeaderBoard(true)
+                horseStore.setLeaderBoard(true)
             }
         }, 100);
     }
@@ -70,7 +66,7 @@ import Avatar from '../Shared/Avatar.vue';
 
 <template>
     <div class="horse" >
-        {{minute}} : {{seconds}} : {{milliseconds}} 
+        {{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}} 
         <div class="horse__number">
             {{props.index+1}}
         </div>
@@ -79,6 +75,8 @@ import Avatar from '../Shared/Avatar.vue';
         </div>
         <div ref="horseAnimate" class="horse--content">
             <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
+            <!-- <img v-else class="horse--content--img"  src="https://user-images.githubusercontent.com/72731296/198108256-a193d85f-ac8b-4443-a7e0-1cb156ed5cdd.png" alt=""> -->
+            
         </div>
     </div>
 </template>
