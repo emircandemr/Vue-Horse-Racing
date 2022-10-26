@@ -2,7 +2,7 @@
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
     // import {updateHorse} from "../../services/horseService";
-import Avatar from '../Shared/Avatar.vue';
+    import Avatar from '../Shared/Avatar.vue';
 
     const props = defineProps(["horse","start","index"])
 

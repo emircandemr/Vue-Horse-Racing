@@ -6,12 +6,12 @@ const routes = [
     {
         name : "Start",
         path : "/",
-        component : () => import("../views/StartPage.vue")
+        component : () => import("../views/RaceStartView.vue")
     },
     {
         name : "Home",
         path : "/home",
-        component : () => import("../views/HomePage.vue")
+        component : () => import("../views/RacePlayView.vue")
     }
 ]
 

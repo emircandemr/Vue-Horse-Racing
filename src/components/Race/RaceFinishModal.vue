@@ -1,10 +1,9 @@
 <script setup>
 import {useHorseStore} from "../../stores/use-horseData"
-import Avatar from "../Shared/Avatar.vue";
 import {useRouter} from "vue-router"
-import Statistics from "./Statistics.vue";
+import Statistics from "./RaceStatistics.vue";
 import {ref} from "vue"
-import ScoreBoard from "./ScoreBoard.vue";
+import ScoreBoard from "./RaceScore.vue";
 
 const router = useRouter()
 const horseStore = useHorseStore()

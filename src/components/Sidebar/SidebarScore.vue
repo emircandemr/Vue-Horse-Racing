@@ -1,7 +1,5 @@
 <script setup>
-import { computed,onMounted,ref } from "vue"
 import {useHorseStore} from "../../stores/use-horseData"
-import StopWatch from "../Content/StopWatch.vue";
 import Avatar from "../Shared/Avatar.vue";
 const horseStore = useHorseStore()
 

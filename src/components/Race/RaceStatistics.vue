@@ -1,9 +1,8 @@
 <script setup>
 import {useHorseStore} from "../../stores/use-horseData"
-import Avatar from "../Shared/Avatar.vue";
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-import { onBeforeMount, onMounted, onUpdated, ref } from "vue";
+import {  ref } from "vue";
 
 
 const horseStore = useHorseStore()

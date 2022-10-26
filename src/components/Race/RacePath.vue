@@ -1,7 +1,7 @@
 <script setup>
     import {useHorseStore} from "../../stores/use-horseData"
-    import Horse from "./Horse.vue";
-    import Finish from "./Finish.vue";
+    import RaceHorse from "./RaceHorse.vue";
+    import RaceFinishFlag from "./RaceFinishFlag.vue";
     const horseStore = useHorseStore()
 </script>
 
@@ -10,8 +10,8 @@
         {{horseStore.startFlag}}  
         {{horseStore.finishFlag}} 
         {{horseStore.horses[0].position}} 
-        <Horse v-for="(horse,index) in horseStore.horses" :horse="horse" :index="index" :key="index"/>
-        <Finish></Finish>
+        <RaceHorse v-for="(horse,index) in horseStore.horses" :horse="horse" :index="index" :key="index"/>
+        <RaceFinishFlag></RaceFinishFlag>
 
     </div>
 

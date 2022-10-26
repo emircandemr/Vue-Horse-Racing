@@ -1,7 +1,7 @@
 <script setup>
     import {useHorseStore} from "../../stores/use-horseData"
     import Avatar from "../Shared/Avatar.vue";
-    import Score from "./Score.vue";
+    import SidebarScore from "./SidebarScore.vue";
     const horseStore = useHorseStore()
 
 </script>
@@ -13,7 +13,7 @@
             <h1 class="aside--header--title">{{horseStore.selectedHorse.name}}</h1>
         </div>
         <div class="aside--content">
-            <Score></Score>
+            <SidebarScore></SidebarScore>
         </div>
         <div class="aside--footer">
         </div>
