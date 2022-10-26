@@ -1,8 +1,8 @@
 <script setup>
 import Sidebar from '../components/Sidebar/Sidebar.vue';
-import Content from '../components/Content/Content.vue';
-import Countdown from '../components/Content/Countdown.vue';
-import LeaderBoard from '../components/Content/FinishModal.vue';
+import RacePath from '../components/Race/RacePath.vue';
+import RaceCountdown from '../components/Race/RaceCountdown.vue';
+import RaceFinishModal from '../components/Race/RaceFinishModal.vue';
 import {useHorseStore} from  "../stores/use-horseData"
 
 const horseStore = useHorseStore()
@@ -47,7 +47,7 @@ const horseStore = useHorseStore()
     <div class="main">
         <Sidebar></Sidebar>
         <div class="main--content">
-            <Content></Content>
+            <RacePath></RacePath>
         </div>
         <!-- <Button v-for="button in buttons" :button="button" ></Button> -->
         <!-- <Finish /> -->
@@ -57,10 +57,10 @@ const horseStore = useHorseStore()
         
     </div>
     <Teleport to="body">
-        <Countdown></Countdown>
+        <RaceCountdown></RaceCountdown>
     </Teleport>
     <Teleport to="body">
-        <LeaderBoard></LeaderBoard>
+        <RaceFinishModal></RaceFinishModal>
     </Teleport>
     <!-- <Teleport to="body">
         <Statistics></Statistics>
