@@ -1,5 +1,4 @@
 <script setup>
-
 import { onMounted, ref } from 'vue';    
 import {useHorseStore} from  "../../stores/use-horseData"
 
@@ -10,7 +9,6 @@ const flag = ref()
 onMounted(() => {
     console.log(flag)
     horseStore.setFinishFlag((flag.value.offsetLeft-15))
-    // store.commit("setFinishFlag", flag.value.offsetLeft)
 })
 
 </script>

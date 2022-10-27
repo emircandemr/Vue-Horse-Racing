@@ -5,7 +5,6 @@ import RaceCountdown from '../components/Race/RaceCountdown.vue';
 import RaceFinishModal from '../components/Race/RaceFinishModal.vue';
 import {useHorseStore} from  "../stores/use-horseData"
 
-const horseStore = useHorseStore()
 
 // const horses = ref(computed(() => store.state.horses))
 // const startFlag = computed(() => store.state.startFlag)
@@ -49,12 +48,6 @@ const horseStore = useHorseStore()
         <div class="main--content">
             <RacePath></RacePath>
         </div>
-        <!-- <Button v-for="button in buttons" :button="button" ></Button> -->
-        <!-- <Finish /> -->
-        <!-- <Horse v-for="horse in horses"  :horse="horse"  /> -->
-        <!-- <Score  /> -->
-        <!-- <LeaderBoard/> -->
-        
     </div>
     <Teleport to="body">
         <RaceCountdown></RaceCountdown>
@@ -62,9 +55,6 @@ const horseStore = useHorseStore()
     <Teleport to="body">
         <RaceFinishModal></RaceFinishModal>
     </Teleport>
-    <!-- <Teleport to="body">
-        <Statistics></Statistics>
-    </Teleport> -->
 </template>
 
 

@@ -12,7 +12,6 @@
         {{horseStore.horses[0].position}} 
         <RaceHorse v-for="(horse,index) in horseStore.horses" :horse="horse" :index="index" :key="index"/>
         <RaceFinishFlag></RaceFinishFlag>
-
     </div>
 
 </template>

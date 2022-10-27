@@ -13,18 +13,28 @@ onMounted(async () => {
     horseStore.setSortTyr(await getHorses())
 })
 
+const selectHandler = (horse) => {
+        horseStore.setSelectHorse(horse)
+}
+
 const startHandler = () => {
     router.push("/home")
     horseStore.setCountdownActive(true)
     // updateHorse(horseStore.selectedHorse.id, horseStore.selectedHorse)
 }
+
 </script>
 
 <template>
     <div class="select" >
         <h1 class="select--title">Choose Your Avatar</h1>
-        <div class="select--content" >
-            <Avatar v-for="item in horseStore.horses" :item="item" :size="180" ></Avatar>
+        <div class="select--content">
+            <button v-for="horse in horseStore.horses" 
+            :key="horse.name"
+            data-test = "select-horse"
+            @click="selectHandler(horse)">
+                <Avatar :item="horse" :size="180" ></Avatar>
+            </button>
         </div>
         <div class="select--start" >
             <button v-if="horseStore.selectedHorse" @click="startHandler">Start</button>
@@ -55,12 +65,19 @@ const startHandler = () => {
             width: 50%;
             height: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
+            button{
+                width: 180px;
+                height: 180px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
         }
-
         &--start{
             width: 100%;
             height: 10%;

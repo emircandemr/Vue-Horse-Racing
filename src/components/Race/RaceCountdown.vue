@@ -1,13 +1,13 @@
 <script setup>
-    import { computed, onMounted, onUpdated, ref, watch, watchEffect } from 'vue';
+    import { ref, watchEffect } from 'vue';
     import {useHorseStore} from  "../../stores/use-horseData"
 
     const horseStore = useHorseStore()
 
     const countdown = ref(3)
 
-    const start = () => {
-        countdown.value = countdown.value - 1
+    const startCountDown = () => {
+        countdown.value -= 1
     }
 
     const audio = new Audio("http://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
@@ -16,17 +16,16 @@
     const startTimer = () => {
         const timer = setInterval(() => {
             if(countdown.value > 1){
-                start()
+                startCountDown()
                 audio.play()
+                return
             }
-            else{
-                audio.pause()
-                audio2.play()
-                clearInterval(timer)
-                horseStore.setStartFlag(true)
-                horseStore.setCountdownActive(false)
-                horseStore.setIsStopwatch(true)
-            }
+            audio.pause()
+            audio2.play()
+            horseStore.setStartFlag(true)
+            horseStore.setCountdownActive(false)
+            horseStore.setIsStopwatch(true)
+            clearInterval(timer)
         }, 1000);
     }
 
@@ -37,40 +36,12 @@
         }
     })
 
-
-    // onUpdated(() => {
-    //     console.log("girdi")
-    //     if(isActive){
-    //         audio.play()
-    //         if(countdown.value > 0){
-    //         setTimeout(() => {
-    //             start()
-    //         }, 1000);
-    //     }
-    //     else{
-    //         audio.pause()
-    //         audio2.play()
-    //         horseStore.setStartFlag(true)
-    //         horseStore.setCountdownActive(false)
-    //         countdown.value = 3
-    //     }
-    //     }
-    // })
-
-
 </script>
 
 <template>
     <div v-if="horseStore.getCountdownActive" class="modal">
-        <div class="modal--layer"></div>
-        <div class="modal--content">
-            
-            <!-- <audio
-                controls
-                hidden="true"
-                src="../assets/audio/deneme.mp3"
-                ref="audio">
-            </audio> -->
+        <div class="modal__layer"></div>
+        <div class="modal__content">
             <h1>{{countdown}}</h1>
         </div>
     </div>
@@ -89,7 +60,7 @@
     align-items: center;
     z-index: 9999;
 
-    &--layer{
+    &__layer{
         position: absolute;
         top: 0;
         left: 0;
@@ -99,7 +70,7 @@
         opacity: 0.5;
     }
 
-    &--content{
+    &__content{
         position: relative;
         width: 300px;
         height: 300px;
@@ -107,8 +78,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        z-index: 9999;
-
+        z-index: 99;
         h1{
             font-size: 100px;
             font-weight: 700;

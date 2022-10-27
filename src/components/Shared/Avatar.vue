@@ -5,15 +5,11 @@
     const props = defineProps(["item","size"])
 
 
-    const selectHandler = (item) => {
-        horseStore.setSelectHorse(item)
-}
-
 </script>
 
 <template>
     <div class="avatar" :style="{width : `${props.size}px`,height : `${props.size}px` }" >
-        <img class="avatar--img" :src="props.item.img" @click="selectHandler(item)">
+        <img class="avatar--img" :src="props.item.img">
     </div>
 </template>
 
