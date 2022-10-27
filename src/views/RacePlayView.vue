@@ -67,7 +67,7 @@ import {useHorseStore} from  "../stores/use-horseData"
     height: 100vh;
     color: #fff;
     background-color: #212121;
-    // background-color: rgba(0, 0, 1, 0.982);
+    background-color: rgba(0, 0, 1, 0.982);
     &--content {
         width: calc(100% - 280px);
         height: 100%;

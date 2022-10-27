@@ -145,30 +145,3 @@
     }
 
 </style>
-
-
-
-
-// const oldPosition = ref(0)
-// const newPosition = ref(20)
-
-// const move = () => {
-//     horseAnimate.value.animate([
-//         {transform: `translateX(${oldPosition.value}px)`},
-//         {transform: `translateX(${newPosition.value}px)`}
-//     ])
-//     oldPosition.value = newPosition.value
-//     newPosition.value = newPosition.value + Math.round(Math.random() * 500) + 1
-// }
-
-// const startTimer = () => {
-//     const timer = setTimeout(() => {
-//         if(horseStore.startFlag){
-//             move()
-//         }
-//     }, 1000);
-// }
-
-// onMounted(() => {
-//     startTimer()
-// })
