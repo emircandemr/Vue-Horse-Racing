@@ -7,16 +7,15 @@ const horseStore = useHorseStore()
 
 </script>
 
-
 <template>
     <div v-if="horseStore.getSortHorses" class="score"> 
-        <div class="score--list">
+        <div class="score__table">
             <table>
                 <tr>
                     <th>Horse</th>
                     <th>Name</th>
                 </tr>
-                <tr v-for="(horse) in horseStore.getSortHorses" :key="horse.id" >
+                <tr v-for="(horse) in horseStore.horses" :key="horse.id" >
                     <td><Avatar :item="horse" :size="50"></Avatar></td>
                     <td>{{horse.name}}</td>
                 </tr>
@@ -33,7 +32,7 @@ const horseStore = useHorseStore()
         height: 90%;
         font-size: 12px;
         background-color: 1px solid black;
-            &--list {
+            &__table {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -45,10 +44,6 @@ const horseStore = useHorseStore()
                     height: 80%;
                     border-collapse: collapse;
                     text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
                     font-size: 14px;
 
                     tr{

@@ -22,20 +22,19 @@
             }
             audio.pause()
             audio2.play()
-            horseStore.setStartFlag(true)
+            horseStore.setRaceStart(true)
             horseStore.setCountdownActive(false)
             clearInterval(timer)
         }, 1000);
     }
 
     watchEffect(() => {
-        if(horseStore.countdownActive){
+        if(horseStore.isCountdownActive){
             countdown.value = 3
             startTimer()
         }
     })
     
-
 </script>
 
 <template>
@@ -58,7 +57,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 99;
 
     &__layer{
         position: absolute;

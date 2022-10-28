@@ -36,7 +36,7 @@ const backToAvatarHandler = () => {
             </table>
             <div class="score__button">
                 <button @click="againHandler" class="score__button--again">Play Again</button>
-                <button @click="backToAvatarHandler" class="score__button--back">Choose Back To Avatar</button>
+                <button @click="backToAvatarHandler" class="score__button--back">Back To Avatar</button>
             </div>
     </div>
 </template>

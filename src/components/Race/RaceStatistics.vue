@@ -7,13 +7,14 @@ import {  ref } from "vue";
 
 const horseStore = useHorseStore()
 
+
 const chartData = ref({
-    labels :  horseStore.getHorseName,
+    labels :  horseStore.horses.map(horse => horse.name),
     datasets: [ 
         { 
             label : 'Winner Count',
             backgroundColor: '#cdcdcd',
-            data: horseStore.getWinnerCount
+            data: horseStore.horses.map(horse => horse.winnerCount)
         }
     ]
 })
@@ -23,7 +24,7 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
   const chartOptions = {
   responsive: true,
   maintainAspectRatio: false
-    }
+}
 
 </script>
 

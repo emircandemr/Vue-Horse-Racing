@@ -4,7 +4,9 @@
     import Avatar from "../Shared/Avatar.vue";
     import { onMounted, ref } from "vue";
     import { getHorses } from "../../services/horseService";
-import { useHorseStore } from "../../stores/use-horseData";
+    import { useHorseStore } from "../../stores/use-horseData";
+
+    const horseStore = useHorseStore();
 
     const horseList = ref([])
 
@@ -16,12 +18,13 @@ import { useHorseStore } from "../../stores/use-horseData";
 
 <template>
     <div class="race">
-        <div v-for="(horse,index) in horseList"  :key="horse.id" class="race__path">
-            {{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}} 
+        <div v-for="(horse,index) in horseList" :key="horse.id" class="race__path" 
+        :class="{'active' : horse.id===horseStore.selectedHorse.id }">
+        {{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}} 
             <div class="race__path--number">
                 {{index +1 }}
             </div>
-            <div class="race__path--avatar">
+            <div class="race__path--avatar" >
                 <Avatar :item="horse" :size="40" ></Avatar>
             </div>
             <RaceHorse :horse="horse" />
@@ -83,6 +86,13 @@ import { useHorseStore } from "../../stores/use-horseData";
                 z-index: 2;
             }
         }
+    }
+
+    .active{
+        // border: 2px solid #ee2961;
+        // border-radius: 50%;
+        border-top: 1px solid #84ff99;
+        border-bottom: 1px solid #84ff99;
     }
 
 

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watchEffect,watch } from 'vue';    
+import { onMounted, ref, watchEffect,watch, onUpdated } from 'vue';    
 import {useHorseStore} from  "../../stores/use-horseData"
 
 const horseStore = useHorseStore()
@@ -7,10 +7,16 @@ const horseStore = useHorseStore()
 const flag = ref()
 
 // onMounted(() => {
+//     console.log("mounted")
 //     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
 // })
 
-watch(() => horseStore.startFlag, () => {
+// onUpdated(() => {
+//     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
+// })
+
+watch((e) => flag.value, () => {
+    console.log(flag.value)
     horseStore.setFinishFlag((flag.value.offsetLeft-15))
     })
     
@@ -18,8 +24,6 @@ watch(() => horseStore.startFlag, () => {
 
 <template>
     <div ref="flag" class="finish">
-        <div class="finish__flag">
-        </div>
     </div>
 </template>
 
@@ -35,10 +39,6 @@ watch(() => horseStore.startFlag, () => {
         place-items: center;
         background : gray;
         z-index: 99;
-        &__flag {
-            width: 50px;
-            height: 100%;
-        }
     }
 
 </style>
