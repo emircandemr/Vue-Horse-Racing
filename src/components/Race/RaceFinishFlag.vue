@@ -1,15 +1,19 @@
 <script setup>
-import { onMounted, ref } from 'vue';    
+import { onMounted, ref, watchEffect,watch } from 'vue';    
 import {useHorseStore} from  "../../stores/use-horseData"
 
 const horseStore = useHorseStore()
 
 const flag = ref()
 
-onMounted(() => {
-    horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
-})
+// onMounted(() => {
+//     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
+// })
 
+watch(() => horseStore.startFlag, () => {
+    horseStore.setFinishFlag((flag.value.offsetLeft-15))
+    })
+    
 </script>
 
 <template>

@@ -35,7 +35,7 @@ const selectHandler = (event) => {
                     <option v-for="select in selectData" :key="select.id" :value="select.name" >{{select.name}}</option>
             </select>
             <h1 class="modal__content--title">{{selected}}</h1>
-            <div class="modal__component">
+            <div class="modal__content--component">
                 <ScoreBoard v-if="selected === 'LeaderBoard'" />
                 <Statistics v-else />
             </div>
@@ -68,7 +68,7 @@ const selectHandler = (event) => {
 
         &__content {
             width: 50%;
-            height: 70%;
+            height: 700px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -97,9 +97,10 @@ const selectHandler = (event) => {
                 cursor: pointer;
                 }
             
-            &__component{
+            &--component{
                 width: 100%;
                 height: 100%;
+                display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;

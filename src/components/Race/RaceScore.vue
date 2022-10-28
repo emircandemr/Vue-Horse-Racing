@@ -8,9 +8,10 @@ const horseStore = useHorseStore()
 
 const againHandler = () => {
     horseStore.againHandler()
+    horseStore.setCountdownActive(true)
 }
 
-const backHandler = () => {
+const backToAvatarHandler = () => {
     horseStore.againHandler()
     horseStore.setSelectHorse(null)
     router.push("/")
@@ -35,7 +36,7 @@ const backHandler = () => {
             </table>
             <div class="score__button">
                 <button @click="againHandler" class="score__button--again">Play Again</button>
-                <button @click="backHandler" class="score__button--back">Back</button>
+                <button @click="backToAvatarHandler" class="score__button--back">Choose Back To Avatar</button>
             </div>
     </div>
 </template>
@@ -44,6 +45,8 @@ const backHandler = () => {
 <style lang="scss" scoped>
 
 .score{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,24 +90,22 @@ const backHandler = () => {
         justify-content: center;
         align-items: center;
         margin-top: 2rem;
-        &--again{
+
+        button{
             background: #121212;
             min-width: 80px;
             padding: 0.8rem ;
             color: aliceblue;
-            border: none;
+            border: 2px solid #212121;
             border-radius: 10px;
             margin-right: 1rem;
             cursor: pointer;
-        }
-        &--back{
-            background: #121212;
-            min-width: 80px;
-            padding: 0.8rem ;
-            color: aliceblue;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
+
+            &:hover{
+                background: #212121;
+                border: 2px solid #121212;
+            }
+
         }
         
     }

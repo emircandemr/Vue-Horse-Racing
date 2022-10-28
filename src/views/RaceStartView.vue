@@ -69,7 +69,7 @@ const startHandler = () => {
         }
 
         &__content{
-            width: 50%;
+            max-width: 800px;
             height: 50%;
             display: flex;
             flex-wrap: wrap;

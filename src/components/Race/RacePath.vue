@@ -4,6 +4,7 @@
     import Avatar from "../Shared/Avatar.vue";
     import { onMounted, ref } from "vue";
     import { getHorses } from "../../services/horseService";
+import { useHorseStore } from "../../stores/use-horseData";
 
     const horseList = ref([])
 

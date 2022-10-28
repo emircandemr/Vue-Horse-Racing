@@ -2,7 +2,6 @@
     import {onMounted, ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
     // import {updateHorse} from "../../services/horseService";
-    import Avatar from '../Shared/Avatar.vue';
 
     const props = defineProps(["horse","start"])
 
@@ -12,7 +11,6 @@
 
     const horseAnimate = ref()
 
-    // const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
     const stopwatch = () => {
         const timer = setInterval(() => {
@@ -37,7 +35,6 @@
         horseAnimate.value.style.left = horse.value.position + "px"
         horse.value.speed =Math.round(Math.random() * 15) + 2
         horse.value.position += horse.value.speed
-        // audio.play()
         const timer = setTimeout(() => {
             if(horse.value.position < horseStore.finishFlag){
                 move()
@@ -45,10 +42,8 @@
             }
             else{
                 clearTimeout(timer)
-                // audio.pause()
                 horseStore.setStartFlag(false)
                 horseStore.setSortHorse(horse.value)
-                horseStore.setWinnerHorse(horseStore.sortHorse[0])
                 // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
                 horseStore.setLeaderBoard(true)
             }
@@ -66,6 +61,7 @@
 </script>
 
 <template>
+    {{horseStore.finishFlag}}
     <div class="horse" >
         <div ref="horseAnimate" class="horse__content">
             <img class="horse__content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">

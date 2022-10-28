@@ -6,7 +6,6 @@ export const useHorseStore = defineStore("horse-store",{
             horses : [],
             selectedHorse : null,
             sortHorse : [],
-            winnerHorse : null,
             finishFlag : null,
             startFlag : false,
             countdownActive : false,
@@ -20,9 +19,6 @@ export const useHorseStore = defineStore("horse-store",{
         },
         setSelectHorse(horse) { // Seçilen atı state'e atar.
             this.selectedHorse = horse;
-        },
-        setWinnerHorse(horse) { // Yarışı kazanan atı state'e atar.
-            this.winnerHorse = horse;
         },
         setStartFlag(statu) { // Yarış başladığında state'i true yapar.
             this.startFlag = statu; 
@@ -51,8 +47,6 @@ export const useHorseStore = defineStore("horse-store",{
             })
         },
         againHandler() {  // Yarışı tekrar başlatır.
-            this.setStartFlag(false);
-            this.setCountdownActive(true);
             this.setLeaderBoard(false);
             this.sortHorse = [];
             this.resetPosition();

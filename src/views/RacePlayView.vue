@@ -5,41 +5,6 @@ import RaceCountdown from '../components/Race/RaceCountdown.vue';
 import RaceFinishModal from '../components/Race/RaceFinishModal.vue';
 import {useHorseStore} from  "../stores/use-horseData"
 
-
-// const horses = ref(computed(() => store.state.horses))
-// const startFlag = computed(() => store.state.startFlag)
-
-// const startHandler = () => {
-//         buttons.value[0].isActive = false
-//         buttons.value[1].isActive = true
-//         store.commit("setCountdownActive", true)    
-//     }
-    
-//     const againHandler = () => {
-//         horses.value.forEach(horse => {
-//             horse.position = 0
-//             horse.speed = 0
-//             horse.isFinished = false
-//         });
-//         store.commit("setCountdownActive", true)    
-//     console.log("againHandler")
-// }
-
-// const buttons = ref([
-//     {
-//     text: "Play",
-//     color: "green",
-//     handler : startHandler,
-//     isActive: true
-//     },
-//     {
-//     text: "Play Again",
-//     color: "blue",
-//     handler : againHandler,
-//     isActive: false
-//     }
-// ])
-
 </script>
 
 <template>
@@ -69,7 +34,7 @@ import {useHorseStore} from  "../stores/use-horseData"
     background-color: #212121;
     background-color: rgba(0, 0, 1, 0.982);
     &__content {
-        width: calc(100% - 280px);
+        width: calc(100% - 300px);
         height: 100%;
         display: flex;
         place-items: center;    
