@@ -50,17 +50,19 @@ const backHandler = () => {
     align-items: center;
     padding: 1rem;
     table{
-        width: 800px;
+        width: 95%;
         border-collapse: collapse;
+        background-color: #121212;
+        border-radius: 20px;
         tr{
             width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid gray;
             td {
-                width: 70%;
+                width: 80%;
                 height: 100%;
                 display: flex;
                 flex-direction: row;
@@ -68,7 +70,8 @@ const backHandler = () => {
                 justify-content: center;
             }
             th{
-                width: 70%;
+                padding: 1rem;
+                width: 80%;
                 height: 100%;
                 display: flex;
                 flex-direction: row;

@@ -5,87 +5,88 @@ export const useHorseStore = defineStore("horse-store",{
         return {
             horses : [],
             selectedHorse : null,
+            sortHorse : [],
+            winnerHorse : null,
+            finishFlag : null,
             startFlag : false,
             countdownActive : false,
-            finishFlag : null,
             leaderBoard : false,
-            sortHorse : [],
             isStatistic : false,
-            isStopwatch : false,
-            sortedTry : [],
         }
     },
     actions : {
-        setHorses(horses) {
+        setHorses(horses) { // Firestoredan gelen verileri state'e atar.
             this.horses = horses;
         },
-        setSelectHorse(horse) {
+        setSelectHorse(horse) { // Seçilen atı state'e atar.
             this.selectedHorse = horse;
         },
-        setStartFlag(statu) {
+        setWinnerHorse(horse) { // Yarışı kazanan atı state'e atar.
+            this.winnerHorse = horse;
+        },
+        setStartFlag(statu) { // Yarış başladığında state'i true yapar.
             this.startFlag = statu; 
         },
-        setCountdownActive(statu) {
+        setCountdownActive(statu) { // Countdown başladığında state'i true yapar.
             this.countdownActive = statu;
         },
-        setFinishFlag(finishFlag) {
+        setFinishFlag(finishFlag) { // Bitiş Bayrağının mesafe değerini state'e atar.
             this.finishFlag = finishFlag;
         },
-        setLeaderBoard(statu) {
+        setLeaderBoard(statu) { // Yarış Bittiğinde leaderboard açar.
             this.leaderBoard = statu;
         },
-        setSortHorse(horse){
+        setSortHorse(horse){ // Yarış Bittiğinde sıralanmış atları state'e atar.
             this.sortHorse.push(horse);
         },
-        setIsStatistic(statu) {
+        setIsStatistic(statu) { // Statistic sayfasını açar.
             this.isStatistic = statu;
         },
-        setIsStopwatch(statu) {
-            this.isStopwatch = statu;
-        },
-        resetPosition() {
+        resetPosition() { // Yarış bitince atların pozisyonlarını sıfırlar.
             this.horses.forEach(horse => {
                 horse.position = 0;
-                horse.count = 0;
+                Object.keys(horse.stopwatch).forEach(key => {
+                    horse.stopwatch[key] = 0;
+                });
             })
         },
-        againHandler() {
+        againHandler() {  // Yarışı tekrar başlatır.
             this.setStartFlag(false);
             this.setCountdownActive(true);
             this.setLeaderBoard(false);
             this.sortHorse = [];
             this.resetPosition();
         },
-        setSortTyr(horse){
-            this.sortedTry = horse;
+        updatedHorse(horse) { // Atların mesafelerini günceller.
+            this.horses.forEach((item,index) => {
+                if(item.id === horse.id) {
+                    this.horses[index] = horse;
+                }
+            })
         },
-        updatedHorse(payload) {
-            const index = this.sortedTry.findIndex(horse => horse.name === payload.name);
-            this.sortedTry[index].position = payload.position;
-        }
-
     },
     getters : {
-        getCountdownActive() {
+        getHorses : (state) => { 
+            return state.horses;
+        },
+        getCountdownActive() { // Countdown açılıp açılmadığını döndürür
             return this.countdownActive;
         },
-        sortHorses() {
-            const isFinish = this.sortedTry.some(horse => horse.position < this.finishFlag);
-            if(isFinish){
-                return this.sortedTry.sort((a,b) => b.position - a.position);
-            }
-            // else{
-            //     return this.sortedTry.sort((a,b) => b.stopwatch.seconds - a.stopwatch.seconds);
-            // }
-        },
-        getLeaderBoard() {
+        getLeaderBoard() { // Leaderboard açılıp açılmadığını döndürür.
             return this.leaderBoard;
         },
-        getWinnerCount () {
+        getWinnerCount () { // Yarışı kazanan atın sayısını döndürür.
             return this.horses.map(horse => horse.winnerCount);
         },
-        getHorseName (){
+        getHorseName (){ 
             return this.horses.map(horse => horse.name);
-        }
+        },
+        getSortHorses(){
+            // const horseList = this.horses
+            const isRaceFinished = this.horses.some(horse => horse.position < this.finishFlag);
+            if(isRaceFinished){
+                return this.horses.sort((a,b) => b.position - a.position);
+            }
+        } 
     }
 })

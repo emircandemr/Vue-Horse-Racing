@@ -7,7 +7,7 @@ const horseStore = useHorseStore()
 const flag = ref()
 
 onMounted(() => {
-    horseStore.setFinishFlag((flag.value.offsetLeft-15))
+    horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
 })
 
 </script>

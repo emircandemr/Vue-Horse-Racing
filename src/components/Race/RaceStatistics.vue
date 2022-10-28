@@ -20,20 +20,10 @@ const chartData = ref({
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-  defineProps({
-    chartId: {
-      type: String,
-      default: 'bar-chart'
-    },
-    width: {
-      type: Number,
-      default: 900
-    },
-    height: {
-      type: Number,
-      default: 500
-    },
-  })
+  const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false
+    }
 
 </script>
 
@@ -42,8 +32,7 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
       <Bar
       :chart-options="chartOptions"
       :chart-data="chartData"
-      :width="width"
-      :height="height"
+      :style="{width: '100%', height: '100%'}"
       />
     </div>
 </template>

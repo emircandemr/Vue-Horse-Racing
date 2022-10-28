@@ -1,27 +1,10 @@
 <script setup>
-import {useHorseStore} from "../../stores/use-horseData"
-import {useRouter} from "vue-router"
-import Statistics from "./RaceStatistics.vue";
 import {ref} from "vue"
+import {useHorseStore} from "../../stores/use-horseData"
+import Statistics from "./RaceStatistics.vue";
 import ScoreBoard from "./RaceScore.vue";
 
-const router = useRouter()
 const horseStore = useHorseStore()
-
-const againHandler = () => {
-    horseStore.againHandler()
-}
-
-const backHandler = () => {
-    horseStore.againHandler()
-    horseStore.setSelectHorse(null)
-    router.push("/")
-}
-
-const statisticHandler = () => {
-    horseStore.setIsStatistic(true)
-    horseStore.setLeaderBoard(false)
-}
 
 const selected = ref("LeaderBoard")
 
@@ -30,28 +13,22 @@ const selectData = ref([
         id : 1 ,
         name : "LeaderBoard",
         isActive : true,
-        // handler : hadnler
     },
     {
         id : 2 ,
         name : "Statistics",
         isActive : false,
-        // handler : hadnler
     }
 ])
 
-const selectHandler = (e) => {
-    selected.value = e.target.value
-    console.log(e.target.value)
+const selectHandler = (event) => {
+    selected.value = event.target.value
 }
-
-
 
 </script>
 
 <template>
     <div v-if="horseStore.getLeaderBoard" class="modal">
-        {{selected}}
         <div class="modal__layer"></div>
         <div class="modal__content">
             <select v-model="selected" @change="selectHandler" class="modal__content--select" >
@@ -62,7 +39,6 @@ const selectHandler = (e) => {
                 <ScoreBoard v-if="selected === 'LeaderBoard'" />
                 <Statistics v-else />
             </div>
-
         </div>
     </div>
 </template>
@@ -70,39 +46,37 @@ const selectHandler = (e) => {
 <style lang="scss" scoped>
 
     .modal {
+        width: 100%;
+        height: 100%;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
+        z-index: 99;
 
         &__layer {
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
             background: rgba(0,0,0,0.5);
         }
 
         &__content {
-            position: relative;
             width: 50%;
             height: 70%;
-            background: #212121;
-            border-radius: 20px;
-            padding: 1rem;
+            position: relative;
             display: flex;
             flex-direction: column;
-            // align-items: center;
-            // justify-content: center;
+            background: #212121;
             color: aliceblue;
-
+            border-radius: 20px;
+            padding: 1rem;
+            
             &--title {
                 font-size: 1.5rem;
                 font-weight: 700;
@@ -118,7 +92,7 @@ const selectHandler = (e) => {
                 color: white;
                 font-size: 16px;
                 font-weight: 500;
-                padding: 0 10px;
+                padding: 5px 10px;
                 outline: none;
                 cursor: pointer;
                 }
@@ -130,26 +104,27 @@ const selectHandler = (e) => {
                 align-items: center;
                 justify-content: center;
             }
-
-            &__button {
-                width: 100px;
-                height: 40px;
-                border: none;
-                border-radius: 10px;
-                background-color: #121212;
-                color: white;
-                font-size: 16px;
-                font-weight: 500;
-                padding: 0 10px;
-                outline: none;
-                cursor: pointer;
-                margin: 1rem 0px;
+        }
+    }
 
 
+    @media screen and (max-width: 1000px) {
+        .modal {
+            &__content {
+                width: 80%;
+                height: 80%;
             }
         }
     }
 
+    @media screen and (max-width: 768px) {
+        .modal {
+            &__content {
+                width: 90%;
+                height: 90%;
+            }
+        }
+    }
 
 
 </style>

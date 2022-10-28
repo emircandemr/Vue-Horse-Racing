@@ -1,28 +1,32 @@
 <script setup>
+    import { computed } from "vue";
     import {useHorseStore} from "../../stores/use-horseData"
     import Avatar from "../Shared/Avatar.vue";
     import SidebarScore from "./SidebarScore.vue";
     const horseStore = useHorseStore()
 
+    const selectedHorsePlace = computed(() => {
+        return horseStore.sortHorse?.findIndex(horse => horse.id === horseStore.selectedHorse.id)
+    })
+
 </script>
 
 <template>
-    <div class="aside">
-        <div class="aside--header">
+    <div class="sidebar">
+        <div class="sidebar__header">
             <Avatar :item="horseStore.selectedHorse" :size="100"></Avatar>
-            <h1 class="aside--header--title">{{horseStore.selectedHorse.name}}</h1>
+            <h1 class="sidebar__header--title">{{horseStore.selectedHorse.name}}</h1>
+            <p class="sidebar__header--place" v-if="selectedHorsePlace > -1">You are in {{selectedHorsePlace+1}}. place</p>
         </div>
-        <div class="aside--content">
+        <div class="sidebar__content"> 
             <SidebarScore></SidebarScore>
-        </div>
-        <div class="aside--footer">
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 
-.aside {
+.sidebar {
     width: 250px;
     height: 80vh;
     background-color: #121212;
@@ -35,20 +39,26 @@
     margin-left: 15px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 
-    &--header {
+    &__header {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
+
         &--title {
             font-size: 1.5rem;
             margin-top: 1rem;
         }
+
+        &--place {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
     }
 
-    &--content {
+    &__content {
         width: 100%;
         margin-top: 10px;
         display: flex;
@@ -56,15 +66,21 @@
         justify-content: center;
     }
 
-    &--footer {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 200px;
+        height: 80vh;
+        margin-left: 15px;
     }
+}
 
-    
-
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0px;
+        visibility: hidden;
+    }
 }
 
 </style>

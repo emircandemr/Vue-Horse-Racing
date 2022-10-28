@@ -4,7 +4,6 @@
 
     const props = defineProps(["item","size"])
 
-
 </script>
 
 <template>

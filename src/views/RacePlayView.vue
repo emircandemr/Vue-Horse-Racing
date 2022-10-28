@@ -45,7 +45,7 @@ import {useHorseStore} from  "../stores/use-horseData"
 <template>
     <div class="main">
         <Sidebar></Sidebar>
-        <div class="main--content">
+        <div class="main__content">
             <RacePath></RacePath>
         </div>
     </div>
@@ -68,7 +68,7 @@ import {useHorseStore} from  "../stores/use-horseData"
     color: #fff;
     background-color: #212121;
     background-color: rgba(0, 0, 1, 0.982);
-    &--content {
+    &__content {
         width: calc(100% - 280px);
         height: 100%;
         display: flex;
@@ -76,5 +76,17 @@ import {useHorseStore} from  "../stores/use-horseData"
 
     }
 }
+
+@media screen and (max-width: 768px) {
+    .main {
+        &__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+        }
+    }
+}
+
 
 </style>

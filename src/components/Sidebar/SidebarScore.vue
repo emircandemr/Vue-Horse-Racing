@@ -1,40 +1,29 @@
 <script setup>
+import { onMounted } from "vue";
+import { getHorses } from "../../services/horseService";
 import {useHorseStore} from "../../stores/use-horseData"
 import Avatar from "../Shared/Avatar.vue";
 const horseStore = useHorseStore()
-
-// const list = computed(() => store.state.horses)
-
-// const score = computed(() => {
-//     return list.value.sort((a,b) => b.position - a.position)
-// })
-
-// const score = computed(() => {
-//     return list.value.sort((a,b) => b.position - a.position)
-// })
-
-// const selectedID = computed ( () => (store.state.selectedHorse.id))
 
 </script>
 
 
 <template>
-    <div class="score">
+    <div v-if="horseStore.getSortHorses" class="score"> 
         <div class="score--list">
             <table>
                 <tr>
                     <th>Horse</th>
                     <th>Name</th>
                 </tr>
-                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
+                <tr v-for="(horse) in horseStore.getSortHorses" :key="horse.id" >
                     <td><Avatar :item="horse" :size="50"></Avatar></td>
                     <td>{{horse.name}}</td>
-                    <!-- <td>{{horse.position}}</td> -->
                 </tr>
             </table>
         </div>
     </div>
-</template>
+</template> 
 
 
 <style lang="scss" scoped>

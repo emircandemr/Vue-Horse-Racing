@@ -24,7 +24,6 @@
             audio2.play()
             horseStore.setStartFlag(true)
             horseStore.setCountdownActive(false)
-            horseStore.setIsStopwatch(true)
             clearInterval(timer)
         }, 1000);
     }

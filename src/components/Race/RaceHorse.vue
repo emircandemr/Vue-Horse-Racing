@@ -4,7 +4,7 @@
     // import {updateHorse} from "../../services/horseService";
     import Avatar from '../Shared/Avatar.vue';
 
-    const props = defineProps(["horse","start","index"])
+    const props = defineProps(["horse","start"])
 
     const horseStore = useHorseStore()
 
@@ -12,7 +12,7 @@
 
     const horseAnimate = ref()
 
-    const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
+    // const audio = new Audio("http://soundbible.com/mp3/Horses Galloping Off-SoundBible.com-438542134.mp3")
 
     const stopwatch = () => {
         const timer = setInterval(() => {
@@ -37,23 +37,24 @@
         horseAnimate.value.style.left = horse.value.position + "px"
         horse.value.speed =Math.round(Math.random() * 15) + 2
         horse.value.position += horse.value.speed
-        audio.play()
+        // audio.play()
         const timer = setTimeout(() => {
             if(horse.value.position < horseStore.finishFlag){
                 move()
                 horseStore.updatedHorse(horse.value)
             }
             else{
-                horseStore.setIsStopwatch(false)
                 clearTimeout(timer)
-                audio.pause()
+                // audio.pause()
                 horseStore.setStartFlag(false)
                 horseStore.setSortHorse(horse.value)
+                horseStore.setWinnerHorse(horseStore.sortHorse[0])
                 // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
                 horseStore.setLeaderBoard(true)
             }
         }, 100);
     }
+
 
     watch(() => horseStore.startFlag, () => {
         if(horseStore.startFlag){
@@ -66,80 +67,30 @@
 
 <template>
     <div class="horse" >
-        {{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}} 
-        <div class="horse__number">
-            {{props.index+1}}
-        </div>
-        <div class="horse__name">
-            <Avatar :item="props.horse" :size="40" ></Avatar>
-        </div>
-        <div ref="horseAnimate" class="horse--content">
-            <img class="horse--content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
+        <div ref="horseAnimate" class="horse__content">
+            <img class="horse__content--img"  src="https://thumbs.gfycat.com/GleefulScarceBushsqueaker.webp" alt="">
             <!-- <img v-else class="horse--content--img"  src="https://user-images.githubusercontent.com/72731296/198108256-a193d85f-ac8b-4443-a7e0-1cb156ed5cdd.png" alt=""> -->
-            
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
     .horse {
-        position: relative;
-        width: 95%;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-        margin: 10px 0px;
-        // background-color: rgb(178,54,20);
-        background-color: #212121;
-        border-top: 2px solid gray;
-        border-bottom: 2px solid gray;
-        // border-radius: 25px;
-        // border-bottom-left-radius: 20px;
-        // border-top-left-radius: 20px;
-
-
-        &__number{
-            position: absolute;
-            right: 30px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid gray;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            z-index: 2;
-        }
-
-        &__name{
-            position: absolute;
-            left: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        &--content {
-            position: absolute;
-            display: flex;
-            top: 0;
-            left: 0;
+        &__content {
             width: 100px;
             height: 60px;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
             
             &--img {
+                width: 100%;
+                height: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
                 z-index: 99;
-
             }
         }
     }

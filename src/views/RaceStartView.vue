@@ -11,7 +11,6 @@ const router = useRouter()
     
 onMounted(async () => {
     horseStore.setHorses(await getHorses())
-    horseStore.setSortTyr(await getHorses())
 })
 
 const selectHandler = (horse) => {
@@ -56,6 +55,11 @@ const startHandler = () => {
         color: white;
 
         &__title{
+            width: 100%;
+            height: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
             font-size: 2.5rem;
             margin-bottom: 2rem;
@@ -67,10 +71,11 @@ const startHandler = () => {
         &__content{
             width: 50%;
             height: 50%;
-            display : grid ;
-            grid-template-columns: repeat(4,1fr);
-            grid-template-rows: repeat(3,1fr);
-            grid-gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 1rem;
             
             button{
                 width: 180px;
@@ -93,11 +98,15 @@ const startHandler = () => {
 
         &__start{
             width: 100%;
-            height: 10%;
+            height: 5%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 1rem;
+            position: relative;
+            bottom: 0;
+
+
             button{
                 border-radius: 50%;
                 padding: 2rem 1.5rem;
@@ -114,5 +123,29 @@ const startHandler = () => {
             }
         }
     }
+
+    @media screen and (max-width: 1200px){
+        .select{
+
+            &__title{
+                font-size: 2rem;
+            }
+
+            &__content{
+                width: 70%;
+                height: 70%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        .select{
+            &__content{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
 
 </style>
