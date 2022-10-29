@@ -24,11 +24,11 @@
 
 <div align="center">
 <h2>Project Views </h2>
-<img src="https://user-images.githubusercontent.com/72731296/198846694-61fbac26-ee32-436b-989d-5d532d4537ab.png" alt="Showcase Image" width="400">
-<img src="https://user-images.githubusercontent.com/72731296/198846693-7f8a0c98-21ac-4789-b968-efb3fbe70e7d.png" alt="Showcase Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846694-61fbac26-ee32-436b-989d-5d532d4537ab.png" alt="Horse Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846693-7f8a0c98-21ac-4789-b968-efb3fbe70e7d.png" alt="Horse Image" width="400">
 
-<img src="https://user-images.githubusercontent.com/72731296/198846690-8b6acb4b-d02c-486f-a858-b6bcf4996032.png" alt="Showcase Image" width="400">
-<img src="https://user-images.githubusercontent.com/72731296/198846695-cb134527-d54a-40b2-be7f-fef1707233a8.png" alt="Showcase Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846690-8b6acb4b-d02c-486f-a858-b6bcf4996032.png" alt="Horse Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846695-cb134527-d54a-40b2-be7f-fef1707233a8.png" alt="Horse Image" width="400">
 </div>
 
 
@@ -75,11 +75,22 @@ Run the application with this command:
 ```bash
 npm run dev
 ```
+
+<div align="center" >
+    <h1> Project Screenshots </h1>
+    <img src="https://user-images.githubusercontent.com/72731296/198850257-e9cf95b2-c576-4997-85b8-a97ee63860d8.png" width="500"/>
+    <img src="https://user-images.githubusercontent.com/72731296/198850318-2e87aea0-fd11-45b3-bf92-de8e1b31543f.png" width="500"/>
+    <img src="https://user-images.githubusercontent.com/72731296/198850348-e9f385e5-5cbe-4f2d-ba59-0364b0c61ac8.png" width="500"/>
+    <img src="https://user-images.githubusercontent.com/72731296/198850373-7c57c59c-993a-4381-bc22-c6ede13c0beb.png" width="500"/>
+
+ </div>
 <div align="center">
 <h1> Project Video </h1>
-<video>
+
+[bandicam 2022-10-29 22-29-05-073.webm](https://user-images.githubusercontent.com/72731296/198850204-3f5b7539-6561-4b41-8cc0-ba341300bb85.webm)
+<!-- <video>
     <source src="https://user-images.githubusercontent.com/72731296/198849487-e84b8b28-cb83-4c74-963f-e98e503293cd.mp4" />
- </video>
+ </video> -->
 </div>
 
 ## Recommended IDE Setup
