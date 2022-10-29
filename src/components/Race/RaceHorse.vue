@@ -1,7 +1,7 @@
 <script setup>
     import { ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
-    // import {updateHorse} from "../../services/horseService";
+    import {updateHorse} from "../../services/horseService";
 
     const props = defineProps(["horse","start"])
 
@@ -42,7 +42,7 @@
                 clearTimeout(timer)
                 horseStore.setRaceStart(false)
                 horseStore.setSortHorse(horse.value)
-                // updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
+                updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
                 horseStore.setLeaderBoard(true)
             }
         }, 100);

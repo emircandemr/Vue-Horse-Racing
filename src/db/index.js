@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCeqFpbRgq2r4j5qqlolXATBco2Hp0sxmw",
+  apiKey: import.meta.env.VUE_APP_FIREBASE_API_KEY,
   authDomain: "protein-patika-vue.firebaseapp.com",
   projectId: "protein-patika-vue",
   storageBucket: "protein-patika-vue.appspot.com",

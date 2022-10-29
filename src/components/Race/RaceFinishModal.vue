@@ -37,14 +37,15 @@ const selectHandler = (event) => {
             <h1 class="modal__content--title">{{selected}}</h1>
             <div class="modal__content--component">
                 <ScoreBoard v-if="selected === 'LeaderBoard'" />
-                <Statistics v-else />
+                <Suspense v-else >
+                    <Statistics />
+                </Suspense>
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-
     .modal {
         width: 100%;
         height: 100%;
@@ -56,7 +57,6 @@ const selectHandler = (event) => {
         align-items: center;
         justify-content: center;
         z-index: 99;
-
         &__layer {
             width: 100%;
             height: 100%;
@@ -65,7 +65,6 @@ const selectHandler = (event) => {
             left: 0;
             background: rgba(0,0,0,0.5);
         }
-
         &__content {
             width: 50%;
             height: 700px;
@@ -108,7 +107,6 @@ const selectHandler = (event) => {
         }
     }
 
-
     @media screen and (max-width: 1000px) {
         .modal {
             &__content {
@@ -117,7 +115,6 @@ const selectHandler = (event) => {
             }
         }
     }
-
     @media screen and (max-width: 768px) {
         .modal {
             &__content {
@@ -126,6 +123,4 @@ const selectHandler = (event) => {
             }
         }
     }
-
-
 </style>

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
 import Avatar from "../components/Shared/Avatar.vue";
@@ -43,7 +43,6 @@ const startHandler = () => {
 
 
 <style lang="scss" scoped>
-
     .select{
         width: 100%;
         height: 100vh;
@@ -65,7 +64,7 @@ const startHandler = () => {
             margin-bottom: 2rem;
             font-family: 'Permanent Marker', cursive;
             letter-spacing: 5px;
-            color: #ee2961;
+            color: rgb(255,129,65);
         }
 
         &__content{
@@ -88,14 +87,11 @@ const startHandler = () => {
                 border: 2px solid gray;
                 border-radius: 50%;
                 &:hover{
-                    border : 2px solid #ee2961;
+                    border : 2px solid rgb(255,129,65);
                     border-radius: 50%;
                 }
-
             }
-
         }
-
         &__start{
             width: 100%;
             height: 5%;
@@ -105,32 +101,28 @@ const startHandler = () => {
             margin-top: 1rem;
             position: relative;
             bottom: 0;
-
-
             button{
                 border-radius: 50%;
                 padding: 2rem 1.5rem;
                 background-color: white;
                 color: black;
-                border: 2px solid #ee2961;
+                // border: 2px solid #ee2961;
+                border : 2px solid rgb(255,129,65) ;
                 font-size: 1.5rem;
                 font-family: 'Permanent Marker', cursive;
                 cursor: pointer;
                 &:hover{
-                    background-color: #ee2961;
+                    background-color: rgb(255,129,65);
                     color: white;
                 }
             }
         }
     }
-
     @media screen and (max-width: 1200px){
         .select{
-
             &__title{
                 font-size: 2rem;
             }
-
             &__content{
                 width: 70%;
                 height: 70%;

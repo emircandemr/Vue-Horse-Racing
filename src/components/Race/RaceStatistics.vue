@@ -1,20 +1,19 @@
 <script setup>
-import {useHorseStore} from "../../stores/use-horseData"
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 import {  ref } from "vue";
+import {getHorses} from "../../services/horseService"
 
 
-const horseStore = useHorseStore()
-
+const horses = await getHorses()
 
 const chartData = ref({
-    labels :  horseStore.horses.map(horse => horse.name),
+    labels :  horses.map(horse => horse.name),
     datasets: [ 
         { 
             label : 'Winner Count',
             backgroundColor: '#cdcdcd',
-            data: horseStore.horses.map(horse => horse.winnerCount)
+            data: horses.map(horse => horse.winnerCount)
         }
     ]
 })
@@ -40,7 +39,6 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 
 <style lang="scss" scoped>
-
     .statistic {
         width: 100%;
         height: 100%;
@@ -52,8 +50,6 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
-
 
 </style>

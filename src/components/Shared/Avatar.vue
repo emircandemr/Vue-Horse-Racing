@@ -1,14 +1,10 @@
 <script setup>
-    import {useHorseStore} from "../../stores/use-horseData"
-    const horseStore = useHorseStore()
-
     const props = defineProps(["item","size"])
-
 </script>
 
 <template>
-    <div class="avatar" :style="{width : `${props.size}px`,height : `${props.size}px` }" >
-        <img class="avatar--img" :src="props.item.img">
+    <div class="avatar" :style="{width : `${props.size}px`, height : `${props.size}px` }" >
+        <img class="avatar--img" :src="props.item.img" :alt="props.item.name">
     </div>
 </template>
 
@@ -20,7 +16,6 @@
         justify-content: center;
         background-color: white;
         border-radius: 50%;
-        // margin: 1rem;
         &--img{
             width: 100%;
             height: 100%;
@@ -31,7 +26,6 @@
             &:hover{
                 transform: scale(1.2);
             }
-
         }
     }
 

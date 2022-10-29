@@ -16,7 +16,7 @@
         <div class="sidebar__header">
             <Avatar :item="horseStore.selectedHorse" :size="100"></Avatar>
             <h1 class="sidebar__header--title">{{horseStore.selectedHorse.name}}</h1>
-            <p class="sidebar__header--place" v-if="selectedHorsePlace > -1">You are in {{selectedHorsePlace+1}}. place</p>
+            <p class="sidebar__header--place" v-if="selectedHorsePlace > -1" >You are in {{selectedHorsePlace+1}}. place</p>
         </div>
         <div class="sidebar__content"> 
             <SidebarScore></SidebarScore>
@@ -45,19 +45,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-
         &--title {
             font-size: 1.5rem;
             margin-top: 1rem;
         }
-
         &--place {
             font-size: 1rem;
             margin-top: 1rem;
         }
     }
-
     &__content {
         width: 100%;
         margin-top: 10px;
@@ -65,7 +61,6 @@
         align-items: center;
         justify-content: center;
     }
-
 }
 
 @media (max-width: 1000px) {

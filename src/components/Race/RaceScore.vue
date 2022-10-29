@@ -1,21 +1,22 @@
 <script setup>
 import {useHorseStore} from "../../stores/use-horseData"
-import Avatar from "../Shared/Avatar.vue";
 import {useRouter} from "vue-router"
+import Avatar from "../Shared/Avatar.vue";
 
 const router = useRouter()
 const horseStore = useHorseStore()
 
-const againHandler = () => {
-    horseStore.againHandler()
+const againHandler = () => {  
+    horseStore.playAgain() 
     horseStore.setCountdownActive(true)
 }
 
 const backToAvatarHandler = () => {
-    horseStore.againHandler()
+    horseStore.playAgain()
     horseStore.setSelectHorse(null)
     router.push("/")
 }
+
 </script>
 
 <template>
@@ -43,7 +44,6 @@ const backToAvatarHandler = () => {
 
 
 <style lang="scss" scoped>
-
 .score{
     width: 100%;
     height: 100%;
@@ -68,33 +68,28 @@ const backToAvatarHandler = () => {
                 width: 80%;
                 height: 100%;
                 display: flex;
-                flex-direction: row;
                 align-items: center;
                 justify-content: center;
             }
             th{
-                padding: 1rem;
                 width: 80%;
                 height: 100%;
+                padding: 1rem;
                 display: flex;
-                flex-direction: row;
                 align-items: center;
                 justify-content: center;
             }
         }
     }
-
     &__button{
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         margin-top: 2rem;
-
         button{
-            background: #121212;
             min-width: 80px;
             padding: 0.8rem ;
+            background: #121212;
             color: aliceblue;
             border: 2px solid #212121;
             border-radius: 10px;

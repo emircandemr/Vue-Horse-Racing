@@ -34,7 +34,7 @@ export const useHorseStore = defineStore("horse-store",{
         setSortHorse(horse){ // Yarış Bittiğinde sıralanmış atları state'e atar.
             this.sortHorse.push(horse);
         },
-        resetPosition() { // Yarış bitince atların pozisyonlarını sıfırlar.
+        resetHorsePosition() { // Yarış bitince atların pozisyonlarını sıfırlar.
             this.horses.forEach(horse => {
                 horse.position = 0;
                 Object.keys(horse.stopwatch).forEach(key => {
@@ -42,10 +42,10 @@ export const useHorseStore = defineStore("horse-store",{
                 });
             })
         },
-        againHandler() {  // Yarışı tekrar başlatır.
+        playAgain() {  // Yarışı tekrar başlatır.
             this.setLeaderBoard(false);
             this.sortHorse = [];
-            this.resetPosition();
+            this.resetHorsePosition();
         },
         updatedHorsePosition(payload) { // Atların mesafelerini günceller.
             const index = this.horses.findIndex(horse => horse.id === payload.id);

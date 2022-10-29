@@ -1,8 +1,8 @@
 <script setup>
+    import { onMounted, ref } from "vue";
     import RaceHorse from "./RaceHorse.vue";
     import RaceFinishFlag from "./RaceFinishFlag.vue";
     import Avatar from "../Shared/Avatar.vue";
-    import { onMounted, ref } from "vue";
     import { getHorses } from "../../services/horseService";
     import { useHorseStore } from "../../stores/use-horseData";
 
@@ -11,8 +11,8 @@
     const horseList = ref([])
 
     onMounted(async () => {
-        horseList.value = await getHorses() // 
-})
+        horseList.value = await getHorses() // get the list of horses from the firestore database
+    })
 
 </script>
 
@@ -27,15 +27,14 @@
             <div class="race__path--avatar" >
                 <Avatar :item="horse" :size="40" ></Avatar>
             </div>
-            <RaceHorse :horse="horse" />
+            <RaceHorse :horse="horse" /> <!--component where horses are listed  -->
         </div>
-        <RaceFinishFlag></RaceFinishFlag>
+        <RaceFinishFlag></RaceFinishFlag> 
     </div>
 
 </template>
 
 <style lang="scss" scoped>
-
     .race{
         width: 100%;
         height: 80vh;
@@ -89,10 +88,10 @@
     }
 
     .active{
-        // border: 2px solid #ee2961;
+        // border: 2px solid rgb(255,129,65);
         // border-radius: 50%;
-        border-top: 1px solid #84ff99;
-        border-bottom: 1px solid #84ff99;
+        border-top: 1px solid rgb(255,129,65);
+        border-bottom: 1px solid rgb(255,129,65);
     }
 
 

@@ -1,12 +1,12 @@
-import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import {useHorseStore} from "../stores/use-horseData"
-
+import RaceStartView from "../views/RaceStartView.vue";
 
 const routes = [
     {
         name : "Start",
         path : "/",
-        component : () => import("../views/RaceStartView.vue")
+        component : RaceStartView
     },
     {
         name : "Home",
@@ -20,13 +20,12 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, __ , next) => {
     const horseStore = useHorseStore()
-    if(to.name === "Home" && !horseStore.selectedHorse) { // Home sayfasına giriş yapmadan önce bir at seçilmesi gerekir
+    if(to.name === "Home" && !horseStore.selectedHorse) { // A horse must be selected before logging into the play page
         next({name : "Start"})
     }
     next()
-
 })
 
 

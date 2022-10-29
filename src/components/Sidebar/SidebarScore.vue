@@ -1,6 +1,4 @@
 <script setup>
-import { onMounted } from "vue";
-import { getHorses } from "../../services/horseService";
 import {useHorseStore} from "../../stores/use-horseData"
 import Avatar from "../Shared/Avatar.vue";
 const horseStore = useHorseStore()
@@ -45,12 +43,10 @@ const horseStore = useHorseStore()
                     border-collapse: collapse;
                     text-align: center;
                     font-size: 14px;
-
                     tr{
                         width: 100%;
                         height: 100%;
                         display: flex;
-                        flex-direction: row;
                         align-items: center;
                         justify-content: center;
                         border-bottom: 1px solid white;
@@ -58,7 +54,6 @@ const horseStore = useHorseStore()
                             width: 50%;
                             height: 100%;
                             display: flex;
-                            flex-direction: row;
                             align-items: center;
                             justify-content: center;
                         }
@@ -66,22 +61,11 @@ const horseStore = useHorseStore()
                             width: 50%;
                             height: 100%;
                             display: flex;
-                            flex-direction: row;
                             align-items: center;
                             justify-content: center;
                         }
                     }
                 }
         }
-    
     }
-
-    .selected {
-        background-color: red;
-        border: 2px solid #fff;
-    }
-
-
-
-
 </style>
