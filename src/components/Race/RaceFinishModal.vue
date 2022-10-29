@@ -119,7 +119,7 @@ const selectHandler = (event) => {
         .modal {
             &__content {
                 width: 90%;
-                height: 90%;
+                height: 95%;
             }
         }
     }

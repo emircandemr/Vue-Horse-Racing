@@ -4,6 +4,7 @@ import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
 import {getHorses} from "../services/horseService"
 import Avatar from "../components/Shared/Avatar.vue";
+import ButtonComp from "../components/Shared/Button.vue";
 
 const horseStore = useHorseStore()
 const router = useRouter()
@@ -98,17 +99,16 @@ const startHandler = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 1rem;
+            margin-top: 2rem;
             position: relative;
             bottom: 0;
             button{
                 border-radius: 50%;
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1rem;
                 background-color: white;
                 color: black;
-                // border: 2px solid #ee2961;
                 border : 2px solid rgb(255,129,65) ;
-                font-size: 1.5rem;
+                font-size: 1rem;
                 font-family: 'Permanent Marker', cursive;
                 cursor: pointer;
                 &:hover{
@@ -132,6 +132,11 @@ const startHandler = () => {
 
     @media screen and (max-width: 768px){
         .select{
+
+            &__title{
+                font-size: 1.5rem;
+            }
+
             &__content{
                 width: 100%;
                 height: 100%;

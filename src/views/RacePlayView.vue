@@ -32,12 +32,13 @@ import RaceFinishModal from '../components/Race/RaceFinishModal.vue';
     color: #fff;
     background-color: #212121;
     background-color: rgba(0, 0, 1, 0.982);
-
+    
     &__content {
         width: calc(100% - 300px);
         height: 100%;
         display: flex;
-        place-items: center;    
+        justify-content: center;
+        align-items: center;    
     }
 }
 @media screen and (max-width: 768px) {

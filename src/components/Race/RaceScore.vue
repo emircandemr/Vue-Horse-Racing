@@ -59,7 +59,7 @@ const backToAvatarHandler = () => {
         border-radius: 20px;
         tr{
             width: 100%;
-            height: 100%;
+            height: 90%;
             display: flex;
             align-items: center;
             justify-content: center;

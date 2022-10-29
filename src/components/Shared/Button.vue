@@ -1,13 +1,13 @@
 <script setup>
 
-    const props = defineProps(["button"])
+    const props = defineProps(["buttonHandler"])
 
 </script>
 
 <template>
-    <div>
-        <button v-if="props.button.isActive" class="start" @click="props.button.handler" > {{props.button.text}} </button>
-    </div>
+    <button class="start" @click="props.buttonHandler" >
+        <slot></slot>
+    </button>
 </template>
 
 <style lang="scss" scoped>

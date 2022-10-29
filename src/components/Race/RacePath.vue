@@ -43,6 +43,7 @@
         justify-content: center;
         position: relative;
         padding: 0px 10px;
+        text-align: center;
         color: white;
         background-color: #121212;
         border-radius: 15px;
@@ -86,12 +87,21 @@
             }
         }
     }
-
     .active{
         // border: 2px solid rgb(255,129,65);
         // border-radius: 50%;
         border-top: 1px solid rgb(255,129,65);
         border-bottom: 1px solid rgb(255,129,65);
+    }
+
+    @media screen and (max-height: 800px){
+        .race{
+            height: 85vh;
+        }
+
+        .path{
+            height: 50px;
+        }
     }
 
 

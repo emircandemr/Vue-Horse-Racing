@@ -78,4 +78,11 @@
     }
 }
 
+@media screen and (max-height: 800px){
+        .sidebar{
+            height: 85vh;
+        }
+    }
+
+
 </style>

@@ -32,7 +32,7 @@ describe("RaceStartView", () => {
 
     test("should button clicked" , async () => {
         const store = useHorseStore()
-        expect(store.countdownActive).toBe(false)
+        expect(store.isCountdownActive).toBe(false)
         // await wrapper.findAll("button").trigger("click")
         // const button = await wrapper.findAll('[data-test="select-horse"]')
     })
