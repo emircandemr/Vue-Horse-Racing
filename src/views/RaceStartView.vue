@@ -2,8 +2,8 @@
 import { onMounted } from "vue";
 import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
-import Avatar from "../components/Shared/Avatar.vue";
 import {getHorses} from "../services/horseService"
+import Avatar from "../components/Shared/Avatar.vue";
 
 const horseStore = useHorseStore()
 const router = useRouter()
