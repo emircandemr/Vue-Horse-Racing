@@ -2,8 +2,8 @@
     import { ref, watchEffect } from 'vue';
     import {useHorseStore} from  "../../stores/use-horseData"
     
-    const audio = new Audio("http://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
-    const audio2 = new Audio("http://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
+    const audio = new Audio("https://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
+    const audio2 = new Audio("https://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
    
     const horseStore = useHorseStore()
 
