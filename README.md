@@ -22,11 +22,11 @@
 
 <div align="center">
 <h2>Project Views </h2>
-<img src="https://user-images.githubusercontent.com/72731296/198846694-61fbac26-ee32-436b-989d-5d532d4537ab.png" alt="Showcase Image" width="600">
-<img src="https://user-images.githubusercontent.com/72731296/198846693-7f8a0c98-21ac-4789-b968-efb3fbe70e7d.png" alt="Showcase Image" width="600">
+<img src="https://user-images.githubusercontent.com/72731296/198846694-61fbac26-ee32-436b-989d-5d532d4537ab.png" alt="Showcase Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846693-7f8a0c98-21ac-4789-b968-efb3fbe70e7d.png" alt="Showcase Image" width="400">
 
-<img src="https://user-images.githubusercontent.com/72731296/198846690-8b6acb4b-d02c-486f-a858-b6bcf4996032.png" alt="Showcase Image" width="600">
-<img src="https://user-images.githubusercontent.com/72731296/198846695-cb134527-d54a-40b2-be7f-fef1707233a8.png" alt="Showcase Image" width="600">
+<img src="https://user-images.githubusercontent.com/72731296/198846690-8b6acb4b-d02c-486f-a858-b6bcf4996032.png" alt="Showcase Image" width="400">
+<img src="https://user-images.githubusercontent.com/72731296/198846695-cb134527-d54a-40b2-be7f-fef1707233a8.png" alt="Showcase Image" width="400">
 </div>
 
 
