@@ -11,9 +11,11 @@
 <h3>Built With</h3>
 <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"></img>
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E"></img>
+<img src="https://img.shields.io/badge/firebase-eeeeee?style=for-the-badge&logo=firebase&logoColor=f5c518"></img>
 <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=FCC72C"></img>
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></img>
 </div>
+
 
 <div align="center">
 <h2>About</h2>
@@ -42,10 +44,13 @@
  - [x] Unit test.
 
 ### 🖥️ **Tech Stack**
+ - [Vue3](https://vuejs.org)
  - [Vite](https://vitejs.dev/)
  - [Pinia](https://pinia.vuejs.org/)
  - [Vue-Router](https://router.vuejs.org/)
  - [Vitest](https://vitest.dev/)
+ - [Firebase](https://vitest.dev/)
+
 
 ## Getting Started
 
@@ -70,6 +75,12 @@ Run the application with this command:
 ```bash
 npm run dev
 ```
+<div align="center">
+<h1> Project Video </h1>
+<video>
+    <source src="https://user-images.githubusercontent.com/72731296/198849487-e84b8b28-cb83-4c74-963f-e98e503293cd.mp4" />
+ </video>
+</div>
 
 ## Recommended IDE Setup
 
