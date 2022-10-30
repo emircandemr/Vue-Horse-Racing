@@ -51,8 +51,8 @@ const move = () => {
         }, 100);
     }
     
-    watch(() => horseStore.isRaceStarted, () => {
-        if(horseStore.isRaceStarted){
+    watch(() => horseStore.getisRaceStarted, () => {
+        if(horseStore.getisRaceStarted){
             move()
             stopwatch()
             // raceAudio.play()

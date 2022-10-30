@@ -124,7 +124,8 @@ npm run dev
 <div align="center">
 <h2> Project Video </h2>
 
-[bandicam 2022-10-29 22-29-05-073.webm](https://user-images.githubusercontent.com/72731296/198850204-3f5b7539-6561-4b41-8cc0-ba341300bb85.webm)
+[bandicam 2022-10-30 20-38-08-523.webm](https://user-images.githubusercontent.com/72731296/198894269-1a640708-9b7d-4211-9ea3-4182dc941485.webm)
+<!-- [bandicam 2022-10-29 22-29-05-073.webm](https://user-images.githubusercontent.com/72731296/198850204-3f5b7539-6561-4b41-8cc0-ba341300bb85.webm) -->
 </div>
 
 <div align="center">

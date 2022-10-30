@@ -28,7 +28,7 @@
     }
 
     watchEffect(() => {
-        if(horseStore.isCountdownActive){
+        if(horseStore.getCountdownActive){
             countdown.value = 3
             startTimer()
         }

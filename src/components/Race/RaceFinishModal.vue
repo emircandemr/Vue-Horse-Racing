@@ -1,12 +1,29 @@
 <script setup>
 import {ref} from "vue"
+import {useRouter} from "vue-router"
 import {useHorseStore} from "../../stores/use-horseData"
 import Statistics from "./RaceStatistics.vue";
 import LeaderBoard from "./RaceLeaderboard.vue";
+import ButtonComp from "../Shared/Button.vue";
 
 const horseStore = useHorseStore()
+const router = useRouter()
 
 const selected = ref("LeaderBoard")
+
+const selectHandler = (event) => {
+    selected.value = event.target.value
+}
+
+const againHandler = () => {  
+    horseStore.playAgain() 
+    horseStore.setCountdownActive(true)
+}
+
+const backToAvatarHandler = () => {
+    horseStore.playAgain()
+    router.push({name: "Start"})
+}
 
 const selectData = ref([
     {
@@ -21,9 +38,20 @@ const selectData = ref([
     }
 ])
 
-const selectHandler = (event) => {
-    selected.value = event.target.value
-}
+const buttonData = [
+    {   
+        id : 1 ,
+        text: "Play Again",
+        handler: againHandler
+    },
+    {
+        id : 2,
+        text: "Back to Avatar",
+        handler: backToAvatarHandler
+    }
+]
+
+
 
 </script>
 
@@ -41,6 +69,9 @@ const selectHandler = (event) => {
                 <Suspense v-else > 
                     <Statistics />
                 </Suspense>
+            </div>
+            <div class="modal__content--button">
+                <ButtonComp v-for="button in buttonData" :key="button.id" :button="button"></ButtonComp>
             </div>
         </div>
     </div>
@@ -104,6 +135,14 @@ const selectHandler = (event) => {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+            }
+
+            &--button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0.5rem;
+        
             }
         }
     }

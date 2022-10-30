@@ -9,10 +9,10 @@ const raceAudio = new Audio(race)
 const flag = ref()
 
 // I'm tracking the change with watch because it needs to work responsively.
-watch(() => horseStore.isRaceStarted, () => {
+watch(() => horseStore.getisRaceStarted, () => {
     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
     raceAudio.play()
-    if(!horseStore.isRaceStarted){
+    if(!horseStore.getisRaceStarted){
         raceAudio.pause()
         raceAudio.currentTime=0
     }

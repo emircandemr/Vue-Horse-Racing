@@ -1,56 +1,27 @@
 <script setup>
 import {useHorseStore} from "../../stores/use-horseData"
-import {useRouter} from "vue-router"
 import Avatar from "../Shared/Avatar.vue";
-import ButtonComp from "../Shared/Button.vue";
 
-const router = useRouter()
 const horseStore = useHorseStore()
-
-const againHandler = () => {  
-    horseStore.playAgain() 
-    horseStore.setCountdownActive(true)
-}
-
-const backToAvatarHandler = () => {
-    horseStore.playAgain()
-    router.push({name: "Start"})
-}
-
-const buttonData = [
-    {   
-        id : 1 ,
-        text: "Play Again",
-        handler: againHandler
-    },
-    {
-        id : 2,
-        text: "Back to Avatar",
-        handler: backToAvatarHandler
-    }
-]
 
 </script>
 
 <template>
     <div class="score">
-            <table>
-                <tr>
-                    <th>Rank</th>
-                    <th>Horse</th>
-                    <th>Name</th>
-                    <th>Time</th>
-                </tr>
-                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" :class="{'active' : horse.id===horseStore.selectedHorse.id }" >
-                    <td>{{index + 1}}</td>
-                    <td><Avatar :item="horse" :size="50"></Avatar></td>
-                    <td>{{horse.name}}</td>
-                    <td>{{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}}</td>
-                </tr>
-            </table>
-            <div class="score__button">
-                <ButtonComp v-for="button in buttonData" :key="button.id" :button="button"></ButtonComp>
-            </div>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Horse</th>
+                <th>Name</th>
+                <th>Time</th>
+            </tr>
+            <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" :class="{'active' : horse.id===horseStore.selectedHorse.id }" >
+                <td>{{index + 1}}</td>
+                <td><Avatar :item="horse" :size="50"></Avatar></td>
+                <td>{{horse.name}}</td>
+                <td>{{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}}</td>
+            </tr>
+        </table>
     </div>
 </template>
 
@@ -92,13 +63,6 @@ const buttonData = [
                 justify-content: center;
             }
         }
-    }
-    &__button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2rem;
-        
     }
 }
 .active{

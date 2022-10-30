@@ -12,7 +12,11 @@ const routes = [
         name : "Play",
         path : "/play",
         component : () => import("../views/RacePlayView.vue")
-    }
+    },
+    { 
+    path: '/:pathMatch(.*)*', 
+    redirect: { name: 'Start' }
+}
 ]
 
 const router = createRouter({
@@ -22,7 +26,7 @@ const router = createRouter({
 
 router.beforeEach((to, __ , next) => {
     const horseStore = useHorseStore()
-    if(to.name === "Play" && !horseStore.selectedHorse) { // A horse must be selected before logging into the play page
+    if(to.name === "Play" && horseStore.selectedHorse=== null) { // A horse must be selected before logging into the play page
         next({name : "Start"})
     }
     next()
