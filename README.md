@@ -20,7 +20,7 @@
 <div align="center">
 <h3>✨ Live Version </h3>
 
-### [You can see the live version here.](https://vue-horce-racing.vercel.app)
+### [You can see the live version here.](https://vue-horse-racing-ed.vercel.app)
 </div>
 
 
