@@ -6,6 +6,7 @@ const horseStore = useHorseStore()
 
 const flag = ref()
 
+// I'm tracking the change with watch because it needs to work responsively.
 watch(() => horseStore.isRaceStarted, () => {
     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
 })
@@ -13,8 +14,7 @@ watch(() => horseStore.isRaceStarted, () => {
 </script>
 
 <template>
-    <div ref="flag" class="finish">
-    </div>
+    <div ref="flag" class="finish"></div>
 </template>
 
 <style lang="scss" scoped>

@@ -4,7 +4,6 @@ import {useHorseStore} from "../stores/use-horseData"
 import {useRouter} from "vue-router"
 import {getHorses} from "../services/horseService"
 import Avatar from "../components/Shared/Avatar.vue";
-import ButtonComp from "../components/Shared/Button.vue";
 
 const horseStore = useHorseStore()
 const router = useRouter()
@@ -37,7 +36,9 @@ const startHandler = () => {
             </button>
         </div>
         <div class="select__start" >
-            <button v-if="horseStore.selectedHorse" @click="startHandler">Start</button>
+            <button class="startButton" 
+            v-if="horseStore.selectedHorse" 
+            @click="startHandler">Start</button>
         </div>
     </div>
 </template>
@@ -102,18 +103,56 @@ const startHandler = () => {
             margin-top: 2rem;
             position: relative;
             bottom: 0;
-            button{
-                border-radius: 50%;
-                padding: 1.5rem 1rem;
-                background-color: white;
+
+            .startButton{
+                position: relative;
                 color: black;
-                border : 2px solid rgb(255,129,65) ;
+                border-radius: 10px;
+                padding: 0.7rem 2rem;
+                font-family: 'Chakra Petch', sans-serif;
                 font-size: 1rem;
-                font-family: 'Permanent Marker', cursive;
                 cursor: pointer;
+                transition: all 0.8s;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    color: #121212;
+                    transition: all 0.8s;
+                }
+
                 &:hover{
-                    background-color: rgb(255,129,65);
-                    color: white;
+                    &::before{
+                        opacity: 0 ;
+                        transform: scale(1,2);
+                    }
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    opacity: 0;
+                    transition: all 0.8s;
+                    border: 2px solid rgb(255,129,65);
+                    border-radius: 8px;
+                    transform: scale(1.5,1.5);
+                }
+
+                &:hover{
+                    &::after{
+                        opacity: 1;
+                        transform: scale(1,1);
+                    }
                 }
             }
         }

@@ -14,7 +14,7 @@
 <img src="https://img.shields.io/badge/firebase-eeeeee?style=for-the-badge&logo=firebase&logoColor=f5c518"></img>
 <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=FCC72C"></img>
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></img>
-<img src="https://img.shields.io/badge/SASS-fcfefe?style=for-the-badge&logo=sass&logoColor=cf649a"></img>
+<img src="https://img.shields.io/badge/SASS-eeeeee?style=for-the-badge&logo=sass&logoColor=cf649a"></img>
 </div>
 
 <div align="center">
@@ -69,7 +69,7 @@
 - `db/*` - Files connected to firestore database.
 - `router/*` - Files for communication between pages used throughout the application.
 - `services/*` - File with functions used to extract data from Firestore and write data.
-- `stores/*` - The file containing the functions that will provide state management throughout the application of Pinia.
+- `stores/*` - Folder containing functions that will provide state management throughout the application.
 - `test/*` - Folder with tests performed with Vitest
 - `views/*` - All other static pages.
 
@@ -123,8 +123,8 @@ npm run dev
 
 <div align="center">
 <h2> Project Video </h2>
-[bandicam 2022-10-29 22-29-05-073.webm](https://user-images.githubusercontent.com/72731296/198850204-3f5b7539-6561-4b41-8cc0-ba341300bb85.webm)
 
+[bandicam 2022-10-29 22-29-05-073.webm](https://user-images.githubusercontent.com/72731296/198850204-3f5b7539-6561-4b41-8cc0-ba341300bb85.webm)
 </div>
 
 <div align="center">

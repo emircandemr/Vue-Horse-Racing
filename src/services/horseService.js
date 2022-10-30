@@ -11,7 +11,7 @@ export const getHorses = async () => {
     return horses
 }
 
-export const updateHorse = async (id, data) => {
+export const updateHorseData = async (id, data) => {
     const horseDoc = doc(db, "Horses", id);
     const newData = {winnerCount : data.winnerCount + 1}
     await updateDoc(horseDoc, newData);

@@ -2,6 +2,7 @@
 import {useHorseStore} from "../../stores/use-horseData"
 import {useRouter} from "vue-router"
 import Avatar from "../Shared/Avatar.vue";
+import ButtonComp from "../Shared/Button.vue";
 
 const router = useRouter()
 const horseStore = useHorseStore()
@@ -13,9 +14,21 @@ const againHandler = () => {
 
 const backToAvatarHandler = () => {
     horseStore.playAgain()
-    horseStore.setSelectHorse(null)
     router.push("/")
 }
+
+const buttonData = [
+    {   
+        id : 1 ,
+        text: "Play Again",
+        handler: againHandler
+    },
+    {
+        id : 2,
+        text: "Back to Avatar",
+        handler: backToAvatarHandler
+    }
+]
 
 </script>
 
@@ -28,7 +41,7 @@ const backToAvatarHandler = () => {
                     <th>Name</th>
                     <th>Time</th>
                 </tr>
-                <tr v-for="(horse, index) in horseStore.sortHorse" :key="horse.id" >
+                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
                     <td>{{index + 1}}</td>
                     <td><Avatar :item="horse" :size="50"></Avatar></td>
                     <td>{{horse.name}}</td>
@@ -36,8 +49,7 @@ const backToAvatarHandler = () => {
                 </tr>
             </table>
             <div class="score__button">
-                <button @click="againHandler" class="score__button--again">Play Again</button>
-                <button @click="backToAvatarHandler" class="score__button--back">Back To Avatar</button>
+                <ButtonComp v-for="button in buttonData" :key="button.id" :button="button"></ButtonComp>
             </div>
     </div>
 </template>
@@ -86,22 +98,6 @@ const backToAvatarHandler = () => {
         justify-content: center;
         align-items: center;
         margin-top: 2rem;
-        button{
-            min-width: 80px;
-            padding: 0.8rem ;
-            background: #121212;
-            color: aliceblue;
-            border: 2px solid #212121;
-            border-radius: 10px;
-            margin-right: 1rem;
-            cursor: pointer;
-
-            &:hover{
-                background: #212121;
-                border: 2px solid #121212;
-            }
-
-        }
         
     }
 

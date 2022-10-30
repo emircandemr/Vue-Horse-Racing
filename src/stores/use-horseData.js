@@ -4,7 +4,7 @@ export const useHorseStore = defineStore("horse-store",{
     state : () => {
         return {
             horses : [],
-            sortHorse : [],
+            sortHorses : [],
             selectedHorse : null,
             finishFlagDistance : null,
             isRaceStarted : false,
@@ -13,28 +13,28 @@ export const useHorseStore = defineStore("horse-store",{
         }
     },
     actions : {
-        setHorses(horses) { // Firestoredan gelen verileri state'e atar.
+        setHorses(horses) { 
             this.horses = horses;
         },
-        setSelectHorse(horse) { // Seçilen atı state'e atar.
+        setSelectHorse(horse) { // Defines the selected horse to the state
             this.selectedHorse = horse;
         },
-        setRaceStart(statu) { // Yarış başladığında state'i true yapar.
+        setRaceStart(statu) { 
             this.isRaceStarted = statu; 
         },
-        setCountdownActive(statu) { // Countdown başladığında state'i true yapar.
+        setCountdownActive(statu) { 
             this.isCountdownActive = statu;
         },
-        setFinishFlag(finishFlag) { // Bitiş Bayrağının mesafe değerini state'e atar.
+        setFinishFlag(finishFlag) { // Defines the distance value of the End Flag to the state.
             this.finishFlagDistance = finishFlag;
         },
-        setLeaderBoard(statu) { // Yarış Bittiğinde leaderboard açar.
+        setLeaderBoard(statu) { 
             this.isLeaderBoardActive = statu;
         },
-        setSortHorse(horse){ // Yarış Bittiğinde sıralanmış atları state'e atar.
-            this.sortHorse.push(horse);
+        setSortHorse(horse){ // Identifies each horse that finishes the race to the sortHorses list
+            this.sortHorses.push(horse);
         },
-        resetHorsePosition() { // Yarış bitince atların pozisyonlarını sıfırlar.
+        resetHorsePosition() { 
             this.horses.forEach(horse => {
                 horse.position = 0;
                 Object.keys(horse.stopwatch).forEach(key => {
@@ -42,24 +42,24 @@ export const useHorseStore = defineStore("horse-store",{
                 });
             })
         },
-        playAgain() {  // Yarışı tekrar başlatır.
+        playAgain() {  
             this.setLeaderBoard(false);
-            this.sortHorse = [];
+            this.sortHorses = [];
             this.resetHorsePosition();
         },
-        updatedHorsePosition(payload) { // Atların mesafelerini günceller.
+        updateHorsePosition(payload) { // Updates the position of the horse according to the distance value of the End Flag.
             const index = this.horses.findIndex(horse => horse.id === payload.id);
             this.horses[index] = payload;
         },
     },
     getters : {
-        getCountdownActive() { // Countdown açılıp açılmadığını döndürür
+        getCountdownActive() { 
             return this.isCountdownActive;
         },
-        getLeaderBoard() { // Leaderboard açılıp açılmadığını döndürür.
+        getLeaderBoard() {
             return this.isLeaderBoardActive;
         },
-        getSortHorses(){
+        getSortHorses(){ // Sorts the horses according to the position.
             const isRaceFinished = this.horses.some(horse => horse.position < this.finishFlagDistance);
             if(isRaceFinished){
                 return this.horses.sort((a,b) => b.position - a.position);

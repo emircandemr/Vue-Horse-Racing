@@ -2,11 +2,12 @@
     import { computed } from "vue";
     import {useHorseStore} from "../../stores/use-horseData"
     import Avatar from "../Shared/Avatar.vue";
-    import SidebarScore from "./SidebarScore.vue";
+    import SidebarScore from "./SidebarScoreboard.vue";
+    
     const horseStore = useHorseStore()
 
     const selectedHorsePlace = computed(() => {
-        return horseStore.sortHorse?.findIndex(horse => horse.id === horseStore.selectedHorse.id)
+        return horseStore.sortHorses?.findIndex(horse => horse.id === horseStore.selectedHorse.id)
     })
 
 </script>

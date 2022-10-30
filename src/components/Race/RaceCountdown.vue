@@ -9,20 +9,16 @@
 
     const countdown = ref(3)
 
-    const startCountDown = () => {
-        countdown.value -= 1
-    }
-
     const startTimer = () => {
         const timer = setInterval(() => {
             if(countdown.value > 1){
-                startCountDown()
+                countdown.value -= 1
                 audio.play()
                 return
             }
             audio.pause()
             audio2.play()
-            horseStore.setRaceStart(true)
+            horseStore.setRaceStart(true) // The func that starts the race when the countdown is over
             horseStore.setCountdownActive(false)
             clearInterval(timer)
         }, 1000);
@@ -49,30 +45,30 @@
 <style lang="scss" scoped>
 
 .modal{
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99;
 
     &__layer{
+        width: 100%;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
         background-color: #000;
         opacity: 0.5;
     }
 
     &__content{
-        position: relative;
         width: 300px;
         height: 300px;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;

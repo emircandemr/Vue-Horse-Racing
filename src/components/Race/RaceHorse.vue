@@ -1,19 +1,18 @@
 <script setup>
     import { ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
-    import {updateHorse} from "../../services/horseService";
-
-    const props = defineProps(["horse","start"])
-
+    import {updateHorseData} from "../../services/horseService";
+    
     const horseStore = useHorseStore()
+    const props = defineProps(["horse","start"])
 
     const horse = ref(props.horse)
 
-    const horseAnimate = ref()
+    const horseAnimate = ref() // ref for the horse animation
 
     const stopwatch = () => {
         const timer = setInterval(() => {
-            if(horse.value.position < horseStore.finishFlagDistance){
+            if(horse.value.position < horseStore.finishFlagDistance){ // if the horse is not at the finish line
                 horse.value.stopwatch.milliseconds++
                 if (horse.value.stopwatch.milliseconds === 100) {
                     horse.value.stopwatch.milliseconds= 0
@@ -36,15 +35,14 @@
         const timer = setTimeout(() => {
             if(horse.value.position < horseStore.finishFlagDistance){
                 move()
-                horseStore.updatedHorsePosition(horse.value)
+                horseStore.updateHorsePosition(horse.value)
+                return
             }
-            else{
-                clearTimeout(timer)
-                horseStore.setRaceStart(false)
-                horseStore.setSortHorse(horse.value)
-                updateHorse(horseStore.sortHorse[0].id, horseStore.sortHorse[0])
-                horseStore.setLeaderBoard(true)
-            }
+            clearTimeout(timer)
+            horseStore.setRaceStart(false)
+            horseStore.setSortHorse(horse.value)
+            updateHorseData(horseStore.sortHorses[0].id, horseStore.sortHorses[0])
+            horseStore.setLeaderBoard(true)
         }, 100);
     }
 

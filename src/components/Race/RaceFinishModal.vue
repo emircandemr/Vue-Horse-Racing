@@ -2,7 +2,7 @@
 import {ref} from "vue"
 import {useHorseStore} from "../../stores/use-horseData"
 import Statistics from "./RaceStatistics.vue";
-import ScoreBoard from "./RaceScore.vue";
+import LeaderBoard from "./RaceLeaderboard.vue";
 
 const horseStore = useHorseStore()
 
@@ -32,12 +32,13 @@ const selectHandler = (event) => {
         <div class="modal__layer"></div>
         <div class="modal__content">
             <select v-model="selected" @change="selectHandler" class="modal__content--select" >
-                    <option v-for="select in selectData" :key="select.id" :value="select.name" >{{select.name}}</option>
+                <option v-for="select in selectData" :key="select.id" :value="select.name" >{{select.name}}</option>
             </select>
             <h1 class="modal__content--title">{{selected}}</h1>
             <div class="modal__content--component">
-                <ScoreBoard v-if="selected === 'LeaderBoard'" />
-                <Suspense v-else >
+                <LeaderBoard v-if="selected === 'LeaderBoard'" />
+                <!-- The reason I use it as Suspense is because data is pulled from the firestore in the Statistics component. -->
+                <Suspense v-else > 
                     <Statistics />
                 </Suspense>
             </div>

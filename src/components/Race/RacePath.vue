@@ -22,7 +22,7 @@
         :class="{'active' : horse.id===horseStore.selectedHorse.id }">
         {{horse.stopwatch.minute}} : {{horse.stopwatch.seconds}} : {{horse.stopwatch.milliseconds}} 
             <div class="race__path--number">
-                {{index +1 }}
+                {{index + 1 }}
             </div>
             <div class="race__path--avatar" >
                 <Avatar :item="horse" :size="40" ></Avatar>
