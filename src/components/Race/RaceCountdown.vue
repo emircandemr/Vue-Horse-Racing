@@ -1,9 +1,11 @@
 <script setup>
     import { ref, watchEffect } from 'vue';
     import {useHorseStore} from  "../../stores/use-horseData"
+    import bell from "../../assets/audio/bell.mp3"
+    import neigh from "../../assets/audio/neigh.mp3"
     
-    const audio = new Audio("https://soundbible.com/mp3/old-fashioned-school-bell-daniel_simon.mp3")
-    const audio2 = new Audio("https://soundbible.com/mp3/Horse Neigh-SoundBible.com-1126369713.mp3")
+    const audioBell = new Audio(bell)
+    const audioNeigh = new Audio(neigh)
    
     const horseStore = useHorseStore()
 
@@ -13,11 +15,12 @@
         const timer = setInterval(() => {
             if(countdown.value > 1){
                 countdown.value -= 1
-                audio.play()
+                audioBell.play()
                 return
             }
-            audio.pause()
-            audio2.play()
+            audioBell.pause()
+            audioBell.currentTime = 0;
+            audioNeigh.play()
             horseStore.setRaceStart(true) // The func that starts the race when the countdown is over
             horseStore.setCountdownActive(false)
             clearInterval(timer)

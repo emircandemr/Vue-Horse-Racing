@@ -88,8 +88,6 @@
         }
     }
     .active{
-        // border: 2px solid rgb(255,129,65);
-        // border-radius: 50%;
         border-top: 1px solid rgb(255,129,65);
         border-bottom: 1px solid rgb(255,129,65);
     }

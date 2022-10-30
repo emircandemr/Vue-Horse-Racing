@@ -41,7 +41,7 @@ const buttonData = [
                     <th>Name</th>
                     <th>Time</th>
                 </tr>
-                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" >
+                <tr v-for="(horse, index) in horseStore.sortHorses" :key="horse.id" :class="{'active' : horse.id===horseStore.selectedHorse.id }" >
                     <td>{{index + 1}}</td>
                     <td><Avatar :item="horse" :size="50"></Avatar></td>
                     <td>{{horse.name}}</td>
@@ -100,8 +100,10 @@ const buttonData = [
         margin-top: 2rem;
         
     }
-
 }
+.active{
+    color: rgb(255,129,65);
+    }
 
 
 </style>

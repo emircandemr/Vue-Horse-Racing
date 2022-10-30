@@ -51,6 +51,7 @@
             margin-top: 1rem;
         }
         &--place {
+            color: rgb(255,129,65);
             font-size: 1rem;
             margin-top: 1rem;
         }
