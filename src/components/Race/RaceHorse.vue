@@ -2,7 +2,7 @@
     import { ref, watch} from 'vue';
     import {useHorseStore} from "../../stores/use-horseData"
     import {updateHorseData} from "../../services/horseService";
-    import race from "../../assets/audio/race.mp3"
+    // import race from "../../assets/audio/race.mp3"
 
     const horseStore = useHorseStore()
     const props = defineProps(["horse","start"])
@@ -11,7 +11,7 @@
 
     const horseAnimate = ref() // ref for the horse animation
 
-    const raceAudio = new Audio(race)
+    // const raceAudio = new Audio(race)
 
     const stopwatch = () => {
         const timer = setInterval(() => {
@@ -42,8 +42,8 @@ const move = () => {
                 return
             }
             clearTimeout(timer)
-            raceAudio.pause()
-            raceAudio.currentTime = 0;
+            // raceAudio.pause()
+            // raceAudio.currentTime = 0;
             horseStore.setRaceStart(false)
             horseStore.setSortHorse(horse.value)
             updateHorseData(horseStore.sortHorses[0].id, horseStore.sortHorses[0])
@@ -55,7 +55,7 @@ const move = () => {
         if(horseStore.isRaceStarted){
             move()
             stopwatch()
-            raceAudio.play()
+            // raceAudio.play()
         }
     })
     

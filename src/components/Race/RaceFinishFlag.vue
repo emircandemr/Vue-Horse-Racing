@@ -1,14 +1,21 @@
 <script setup>
 import { ref,watch } from 'vue';    
 import {useHorseStore} from  "../../stores/use-horseData"
+import race from "../../assets/audio/race.mp3"
 
 const horseStore = useHorseStore()
+const raceAudio = new Audio(race)
 
 const flag = ref()
 
 // I'm tracking the change with watch because it needs to work responsively.
 watch(() => horseStore.isRaceStarted, () => {
     horseStore.setFinishFlag((flag.value.offsetLeft-15)) // distance of the finish flag to the left of the screen
+    raceAudio.play()
+    if(!horseStore.isRaceStarted){
+        raceAudio.pause()
+        raceAudio.currentTime=0
+    }
 })
     
 </script>

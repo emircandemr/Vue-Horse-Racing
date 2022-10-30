@@ -14,6 +14,8 @@
         horseList.value = await getHorses() // get the list of horses from the firestore database
     })
 
+
+
 </script>
 
 <template>
