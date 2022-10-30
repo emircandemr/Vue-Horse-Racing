@@ -43,9 +43,9 @@ export const useHorseStore = defineStore("horse-store",{
             })
         },
         playAgain() {  
+            this.resetHorsePosition();
             this.setLeaderBoard(false);
             this.sortHorses = [];
-            this.resetHorsePosition();
         },
         updateHorsePosition(payload) { // Updates the position of the horse according to the distance value of the End Flag.
             const index = this.horses.findIndex(horse => horse.id === payload.id);

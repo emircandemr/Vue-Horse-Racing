@@ -32,12 +32,11 @@
 }
 
 const move = () => {
-        raceAudio.play()
-        horseAnimate.value.style.left = horse.value.position + "px"
-        horse.value.speed =Math.round(Math.random() * 15) + 2
-        horse.value.position += horse.value.speed
-        const timer = setTimeout(() => {
-            if(horse.value.position < horseStore.finishFlagDistance){
+    horseAnimate.value.style.left = horse.value.position + "px"
+    horse.value.speed =Math.round(Math.random() * 15) + 2
+    horse.value.position += horse.value.speed
+    const timer = setTimeout(() => {
+        if(horse.value.position < horseStore.finishFlagDistance){
                 move()
                 horseStore.updateHorsePosition(horse.value)
                 return
@@ -51,14 +50,15 @@ const move = () => {
             horseStore.setLeaderBoard(true)
         }, 100);
     }
-
+    
     watch(() => horseStore.isRaceStarted, () => {
         if(horseStore.isRaceStarted){
             move()
             stopwatch()
+            raceAudio.play()
         }
     })
-
+    
 </script>
 
 <template>

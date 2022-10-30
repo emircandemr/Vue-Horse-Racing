@@ -9,8 +9,8 @@ const routes = [
         component : RaceStartView
     },
     {
-        name : "Home",
-        path : "/home",
+        name : "Play",
+        path : "/play",
         component : () => import("../views/RacePlayView.vue")
     }
 ]
@@ -22,7 +22,7 @@ const router = createRouter({
 
 router.beforeEach((to, __ , next) => {
     const horseStore = useHorseStore()
-    if(to.name === "Home" && !horseStore.selectedHorse) { // A horse must be selected before logging into the play page
+    if(to.name === "Play" && !horseStore.selectedHorse) { // A horse must be selected before logging into the play page
         next({name : "Start"})
     }
     next()
