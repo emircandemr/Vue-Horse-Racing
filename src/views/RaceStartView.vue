@@ -21,7 +21,7 @@ const selectHandler = (horse) => {
 }
 
 const startHandler = () => {
-    router.push("/play")
+    router.push({name : "Play"})
     horseStore.setCountdownActive(true)
 }
 

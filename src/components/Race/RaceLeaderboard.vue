@@ -14,7 +14,7 @@ const againHandler = () => {
 
 const backToAvatarHandler = () => {
     horseStore.playAgain()
-    router.push("/")
+    router.push({name: "Start"})
 }
 
 const buttonData = [
