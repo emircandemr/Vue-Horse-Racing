@@ -64,6 +64,6 @@ export const useHorseStore = defineStore("horse-store",{
             if(isRaceFinished){
                 return this.horses.sort((a,b) => b.position - a.position);
             }
-        } 
+        }
     }
 })

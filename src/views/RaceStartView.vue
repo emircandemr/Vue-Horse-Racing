@@ -14,6 +14,9 @@ onMounted(async () => {
 })
 
 const selectHandler = (horse) => {
+    horseStore.horses.map((item) => {
+        return item.id === horse.id ? (item.isSelected = true) : (item.isSelected = false);
+	});
     horseStore.setSelectHorse(horse)
 }
 
@@ -29,6 +32,7 @@ const startHandler = () => {
         <h1 class="select__title">Choose Your Avatar</h1>
         <div class="select__content">
             <button v-for="horse in horseStore.horses"
+            :class = "{ 'active' : horse.isSelected }"
             :key="horse.name"
             data-test = "select-horse"
             @click="selectHandler(horse)">
@@ -92,6 +96,10 @@ const startHandler = () => {
                     border : 2px solid rgb(255,129,65);
                     border-radius: 50%;
                 }
+            }
+            .active {
+                border : 2px solid rgb(255,129,65);
+                border-radius: 50%;
             }
         }
         &__start{
@@ -157,6 +165,11 @@ const startHandler = () => {
             }
         }
     }
+
+    // .active {
+    //     border: 2px solid rgb(255,129,65);
+    //     border-radius: 50%;
+    // }
     @media screen and (max-width: 1200px){
         .select{
             &__title{
