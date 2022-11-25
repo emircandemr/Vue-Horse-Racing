@@ -1,10 +1,10 @@
-# Protein Vue.js Bootcamp Final Case
+# Horse Racing
 
 
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/72731296/198735399-9def3b4a-9366-4b80-908f-3ba7c3b8ea4c.png"></img>
-<h3>Protein Vue.js Bootcamp Final Case </h3>
+<h3>Horse-Racing</h3>
 </div>
 
 <div align="center">
